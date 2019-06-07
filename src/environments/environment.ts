@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiRemote: 'https://termin-api.herokuapp.com/api',
+  apiLocal: 'http://localhost:8080/api',
+  apiLAN: 'http://192.168.0.31:8080/api'
 };
 
 /*

@@ -1,18 +1,154 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LayoutModule } from '@angular/cdk/layout';
+import localeDe from '@angular/common/locales/de';
+import { registerLocaleData } from '@angular/common';
+import { routing } from './app.routing';
 
-import { AppRoutingModule } from './app-routing.module';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatGridListModule,
+  MatPaginatorModule,
+  MatCardModule,
+  MatMenuModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatSortModule,
+  MatBottomSheetModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatButtonToggleModule,
+  DateAdapter,
+  MatStepperModule,
+  MatRadioModule,
+  MatChipsModule,
+  MatAutocompleteModule,
+  MatSnackBarModule,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE
+} from '@angular/material';
+
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
+import { CalendarModule, DateAdapter as DateAdapterCalendar } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ContentCardComponent } from './content-card/content-card.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+import { PatientComponent } from './patient/patient.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { FormNewPatientComponent } from './form-new-patient/form-new-patient.component';
+import { FormNewAppointmentComponent } from './form-new-appointment/form-new-appointment.component';
+import { DatetimepickerComponent } from './datetimepicker/datetimepicker.component';
+import { FormDeletePatientComponent } from './form-delete-patient/form-delete-patient.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { CalendarComponent } from './calendar/calendar.component';
+
+
+
+registerLocaleData(localeDe);
+
+export const DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD.MM.YYYY',
+  },
+  display: {
+    dateInput: 'DD.MM.YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    routing,
+    BrowserAnimationsModule,
+    // Calendar
+    CalendarModule.forRoot({
+      provide: DateAdapterCalendar,
+      useFactory: adapterFactory
+    }),
+
+    // Material
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatMenuModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    NgxMaterialTimepickerModule,
+    MatAutocompleteModule,
+    MatStepperModule,
+    MatRadioModule,
+    MatChipsModule,
+    MatSnackBarModule,
+    MatButtonToggleModule
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    ListComponent,
+    NavigationComponent,
+    ContentCardComponent,
+    PatientComponent,
+    BottomSheetComponent,
+    FormNewPatientComponent,
+    FormNewAppointmentComponent,
+    DatetimepickerComponent,
+    FormDeletePatientComponent,
+    AppointmentComponent,
+    CalendarComponent
+  ],
+  entryComponents: [
+    BottomSheetComponent,
+    FormNewPatientComponent,
+    FormNewAppointmentComponent,
+    FormDeletePatientComponent
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
