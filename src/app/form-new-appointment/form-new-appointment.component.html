@@ -1,0 +1,20 @@
+<div class="form-new-appointment">
+
+  <div class="form-header">
+    <span class="form-title">Neuen Termin:</span>
+    <span class="form-patient-name">{{ this.data.patientName || this.patientName }}</span>
+  </div>
+  <app-datetimepicker [autoOpen]="datePickerAutoOpen" placeholderDate="Date" placeholderTime="Time"
+    (dateUpdate)="handleDateChange($event)" (timeUpdate)="handleTimeChange($event)"></app-datetimepicker>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="description" name="description" placeholder="Description">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>
+  <div *ngIf="!formError.hidden" class="form-error-content">
+    <span *ngIf="formError.type === 'conflict'" class="form-error-text">Time conflict: </span>
+    <span *ngIf="formError.type === 'value'" class="form-error-text">Value error: </span>
+    <span class="form-error-patient">{{ formError.text }}</span>
+  </div>
+</div>

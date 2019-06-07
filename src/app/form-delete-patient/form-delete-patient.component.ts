@@ -1,0 +1,72 @@
+import { Component, OnInit, Inject, Input } from '@angular/core';
+
+import { PatientService } from '../_services';
+import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
+
+
+@Component({
+  selector: 'app-form-delete-patient',
+  templateUrl: './form-delete-patient.component.html',
+  styleUrls: ['./form-delete-patient.component.css']
+})
+export class FormDeletePatientComponent implements OnInit {
+
+  @Input() patientId: String = "0"; // External use
+  @Input() patientName: String = ""; // External use
+  formError = {
+    'hidden': true,
+    'text': ''
+  }
+  button = {
+    'text': 'OK',
+    'color': 'primary'
+  };
+
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<FormDeletePatientComponent>,
+    private patientService: PatientService,
+    private _snackBar: MatSnackBar) {
+    // this.patientObservable = patientService.getAll();
+   }
+
+  ngOnInit() {
+    // console.log(this.patientId);
+  }
+
+  handleOkButton() {
+    this.formError.hidden = true;
+    let patientId = this.data.id || this.patientId;
+    this.patientService.deletePatient(patientId)
+      .subscribe(res => {
+        if (res.success) {
+          this.buttonFeedback({
+            'color': 'accent',
+            'text': 'Success'
+          }, true)
+        } else {
+          this.formError.hidden = false;
+          this.formError.text = res.patient;
+          this.buttonFeedback({
+            'color': 'warn',
+            'text': 'ERROR'
+          })
+        }
+      });
+  }
+
+  buttonFeedback(tempButton, closeAfter=false) {
+    this.button = tempButton
+    setTimeout(() => {
+      this.button = {
+        'color': 'primary',
+        'text': 'OK'
+      }
+      if (closeAfter)
+        this.dialogRef.close();
+        this._snackBar.open("Die Daten wurden gelöscht!", '', { duration: 2000 });
+    }, 1500)
+  }
+  
+}

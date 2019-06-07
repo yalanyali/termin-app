@@ -1,0 +1,58 @@
+<!-- <app-calendar-header [(view)]="view" [(viewDate)]="viewDate">
+</app-calendar-header> -->
+
+<div class="calendar-header-container">
+
+  <div class="calendar-header-button-container">
+    <mat-button-toggle-group>
+      <mat-button-toggle class="calendar-header-button-disabled">
+        <div mwlCalendarPreviousView [(view)]="view" [(viewDate)]="viewDate" [excludeDays]="excludeDays">
+          Previous
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle class="calendar-header-button-disabled">
+        <div mwlCalendarToday [(viewDate)]="viewDate">
+          Today
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle class="calendar-header-button-disabled">
+        <div mwlCalendarNextView [(view)]="view" [(viewDate)]="viewDate" [excludeDays]="excludeDays">
+          Next
+        </div>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="calendar-title">
+    {{ viewDate | calendarDate: view + 'ViewTitle':locale }}
+  </div>
+
+  <div class="calendar-header-button-container">
+    <mat-button-toggle-group>
+      <mat-button-toggle [checked]="view==='month'" (click)="viewChange('month')">Monat</mat-button-toggle>
+      <mat-button-toggle [checked]="view==='week'" (click)="viewChange('week')">Woche</mat-button-toggle>
+      <mat-button-toggle [checked]="view==='day'" (click)="viewChange('day')">Tag</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <div class="loading-spinner-container">
+      <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<div [ngSwitch]="view" *ngIf="events | async; else loading; let events">
+  <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
+    (dayClicked)="viewDate = $event.day.date; view = 'day'" [weekStartsOn]="weekStartsOn" [locale]="locale">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events"
+    (dayHeaderClicked)="viewDate = $event.day.date; view = 'day'" [dayStartHour]=8 [dayEndHour]=16
+    [weekStartsOn]="weekStartsOn" [hourSegmentHeight]=27.5 [excludeDays]="excludeDays" [locale]="locale">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view *ngSwitchCase="'day'" [dayStartHour]=8 [dayEndHour]=16 [viewDate]="viewDate" [events]="events"
+    [locale]="locale" (beforeViewRender)="beforeDayViewRender($event.body.hourGrid)"
+    (hourSegmentClicked)="hourSegmentClicked($event.date)">
+  </mwl-calendar-day-view>
+</div>

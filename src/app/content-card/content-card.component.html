@@ -1,0 +1,22 @@
+<div class="grid-container">
+  <!-- <h1 class="mat-h1">Dashboard</h1> -->
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="content-card">
+        <mat-card-header>
+          <mat-card-title *ngIf="title">
+            {{title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="content-card-content">
+          <!-- <div>Card Content Here</div> -->
+          <br>
+          <ng-content></ng-content>
+        </mat-card-content>
+        <button *ngIf="fabButton" (click)="handleFabButtonOnClick()" class="fab-button" color="primary" mat-fab>
+            <mat-icon [inline]="true" style="font-size: 36px;" aria-label="Add new">add</mat-icon>
+        </button>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

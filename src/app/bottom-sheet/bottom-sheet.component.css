@@ -1,0 +1,20 @@
+.mat-list-item {
+    transition: 0.3s !important;
+}
+
+.mat-list-item:hover {
+    background-color: rgb(230, 230, 230) !important;
+}
+
+.mat-list-item-content {
+    flex-direction: row-reverse !important;
+    background-color: black;
+}
+
+.bottom-sheet-icon {
+    margin-right: 30px;
+}
+
+.title {
+    margin-left: 20px;
+}

@@ -1,0 +1,130 @@
+<mat-horizontal-stepper [linear]="false" #stepper>
+  <mat-step [stepControl]="basicInfoForm">
+
+    <form [formGroup]="basicInfoForm" class="form-new-patient">
+      <ng-template matStepLabel>Fill out basic info</ng-template>
+
+      <div class="new-patient-info-container">
+        <mat-form-field>
+          <input matInput formControlName="firstName" placeholder="First name">
+          <mat-error *ngIf="f1.firstName.errors">{{""}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="lastName" placeholder="Last name">
+          <mat-error *ngIf="f1.lastName.errors">{{""}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="gender" placeholder="Gender">
+            <mat-option value="Männlich">Male</mat-option>
+            <mat-option value="Weiblich">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <app-datetimepicker purpose="birthday" placeholderDate="Date" placeholderTime="Time"
+          (dateUpdate)="handleDateChange($event)"></app-datetimepicker>
+        <mat-form-field>
+          <input matInput formControlName="email" placeholder="Email Address">
+          <mat-error *ngIf="f1.email.errors">{{""}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="insuranceNumber" placeholder="Insurance Number">
+          <mat-error *ngIf="f1.insuranceNumber.errors">{{""}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="stepper-button-container">
+        <button class="stepper-button" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+
+  </mat-step>
+
+  <mat-step [stepControl]="addressForm">
+    <form [formGroup]="addressForm" class="form-new-patient">
+      <ng-template matStepLabel>Address Information</ng-template>
+
+
+      <div class="new-patient-info-container">
+        <mat-form-field>
+          <input matInput formControlName="phoneNumber" placeholder="Phone Number" (click)="test()">
+          <!-- <div *ngIf="f2.phoneNumber.errors"> -->
+            <mat-error *ngIf="f2.phoneNumber.errors && f2.phoneNumber.errors.pattern">{{"Wrong phone number."}}</mat-error>
+            <mat-error *ngIf="f2.phoneNumber.errors && f2.phoneNumber.errors.notUnique">{{"Phone number in use."}}</mat-error>
+          <!-- </div> -->
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="state" placeholder="State">
+            <mat-option value="Baden-Württemberg">Baden-Württemberg</mat-option>
+            <mat-option value="Bayern">Bayern</mat-option>
+            <mat-option value="Berlin">Berlin</mat-option>
+            <mat-option value="Brandenburg">Brandenburg</mat-option>
+            <mat-option value="Bremen">Bremen</mat-option>
+            <mat-option value="Hamburg">Hamburg</mat-option>
+            <mat-option value="Hessen">Hessen</mat-option>
+            <mat-option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</mat-option>
+            <mat-option value="Niedersachsen">Niedersachsen</mat-option>
+            <mat-option value="Nordrhein-Westfalen">Nordrhein-Westfalen</mat-option>
+            <mat-option value="Rheinland-Pfalz">Rheinland-Pfalz</mat-option>
+            <mat-option value="Saarland">Saarland</mat-option>
+            <mat-option value="Sachsen">Sachsen</mat-option>
+            <mat-option value="Sachsen-Anhalt">Sachsen-Anhalt</mat-option>
+            <mat-option value="Schleswig-Holstein">Schleswig-Holstein</mat-option>
+            <mat-option value="Thüringen">Thüringen</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="city" placeholder="City">
+            <mat-error *ngIf="f2.city.errors">{{""}}</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input matInput formControlName="street" placeholder="Street">
+            <mat-error *ngIf="f2.street.errors">{{""}}</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input matInput formControlName="buildingNumber" placeholder="Building No">
+            <mat-error *ngIf="f2.buildingNumber.errors">{{""}}</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input matInput formControlName="zip" placeholder="ZIP">
+            <mat-error *ngIf="f2.zip.errors">{{""}}</mat-error>
+          </mat-form-field>
+      </div>
+
+      <div class="stepper-button-container">
+        <button class="stepper-button" mat-button matStepperPrevious>Back</button>
+        <button class="stepper-button" mat-button matStepperNext (click)="createPatient()">Next</button>
+      </div>
+
+    </form>
+  </mat-step>
+
+  <mat-step optional>
+    <ng-template matStepLabel>Appointment</ng-template>
+
+    <div class="new-patient-appointment-container">
+      <app-form-new-appointment (afterClose)="handleNewAppointmentClose($event)" [datePickerAutoOpen]="false"
+        [patientId]="patient.id" [patientName]="patient.lastName"></app-form-new-appointment>
+    </div>
+
+    <div class="stepper-button-container">
+      <button class="stepper-button" mat-button matStepperPrevious>Back</button>
+      <button class="stepper-button" mat-button matStepperNext>Next (Don't make an appointment)</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <div class="new-patient-end-container">
+      <mat-icon [inline]="true" style="font-size: 750%; color: #3f51b5;">done</mat-icon>
+      <span style="font-weight: 500;">Patient created: {{this.patient.firstName}} {{this.patient.lastName}}</span>
+      <br>
+      <span>{{this.appointmentMade ? 'Appointment made: ' + this.appointment.datetime.toString() : ''}}</span>
+    </div>
+    <div class="stepper-button-container">
+      <button class="stepper-button" mat-button matStepperNext (click)="close()">OK</button>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

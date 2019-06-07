@@ -1,0 +1,13 @@
+<mat-nav-list>
+
+  <h2 class="title">{{ data.title }}</h2>
+
+  <a *ngFor="let button of data.buttons" mat-list-item (click)="handleOnClick(button.id)">
+    <mat-icon class="bottom-sheet-icon" aria-label="Side nav toggle icon">{{ button.icon }}</mat-icon>
+    <div>
+      <span mat-line>{{ button.text }}</span>
+      <span mat-line>{{ button.description }}</span>
+    </div>
+  </a>
+
+</mat-nav-list>
