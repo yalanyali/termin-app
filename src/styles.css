@@ -25,11 +25,34 @@ body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif; }
     min-height: 80px !important;
 }
 
-.cal-month-view .cal-day-badge {
-    margin-top: 4px;
-    margin-left: -166px;
-}
-
 .cal-month-view .cal-events {
     margin-top: -50px;
+}
+
+.cal-month-view,.cal-day-view,.cal-week-view {
+    margin-top: 40px;
+}
+
+.cal-event {
+    border: 0.1px solid #c0e0ffdb !important;
+    border-radius: 0px !important;
+}
+
+.cal-month-view .cal-day-badge {
+    background-color: tomato;
+    border-radius: 0px !important;
+    margin: 5px 0px 0px 5px !important;
+    float: left;
+}
+
+.cal-event-title {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cal-week-view .cal-time-events .cal-event {
+    margin: 0px !important;
+    width: 100% !important;
+    height: 100% !important;
 }
