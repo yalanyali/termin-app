@@ -14,8 +14,7 @@ const moment = _moment;
 @Injectable({ providedIn: 'root' })
 export class PatientService {
 
-  // patientUrl = "https://termin-api.herokuapp.com/api/patient";
-  api: string = environment.apiLocal;
+  api: string = environment.apiRemote;
 
   patientUrl: string = `${this.api}/patient`;
 

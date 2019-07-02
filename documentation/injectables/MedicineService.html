@@ -606,7 +606,7 @@ export class MedicineService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get&lt;Medicine&gt;(this.medicineUrl)
+    return this.http.get&lt;Medicine&gt;(this.medicineUrl);
   }
 
   addNewMedicine(medicine: Medicine) {
@@ -622,7 +622,6 @@ export class MedicineService {
   }
 
   autocomplete(value: String) {
-    console.log(value);
     return this.http.get&lt;Medicine&gt;(&#x60;${this.medicineUrl}/search/${value}&#x60;);
   }
 

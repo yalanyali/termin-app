@@ -166,7 +166,8 @@ export const DATE_FORMATS = {
     FormDeleteAppointmentComponent,
     FormAppointmentAddNoteComponent,
     FormNewPrescriptionComponent,
-    FormDeleteMedicineComponent
+    FormDeleteMedicineComponent,
+    FormDeletePrescriptionComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

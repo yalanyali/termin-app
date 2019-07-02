@@ -1,3 +1,10 @@
-<p>
-  form-delete-prescription works!
-</p>
+<div class="form-delete-prescription">
+
+    <div class="form-header">
+      <span class="form-title">Daten Löschen</span>
+      <br>
+      <span>Möchten Sie die Daten vom Rezept {{ this.data.prescriptionName }} löschen?</span>
+      <br>
+    </div>
+    <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>  
+  </div>

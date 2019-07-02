@@ -11,7 +11,7 @@ import { Prescription } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class PrescriptionService {
 
-  api: string = environment.apiLocal;
+  api: string = environment.apiRemote;
   prescriptionUrl: string = `${this.api}/prescription`;
 
   constructor(private http: HttpClient) { }

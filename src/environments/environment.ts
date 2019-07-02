@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiRemote: 'https://termin-api.herokuapp.com/api',
+  apiRemote: 'http://localhost:8080/api', //https://termin-api.herokuapp.com/api',
   apiLocal: 'http://localhost:8080/api',
   apiLAN: 'http://192.168.0.31:8080/api'
 };

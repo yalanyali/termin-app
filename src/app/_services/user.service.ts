@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-    api: string = environment.apiLocal;
+    api: string = environment.apiRemote;
 
     constructor(private http: HttpClient) { }
 
