@@ -56,3 +56,7 @@ body { margin: 0; font-family: "Roboto", "Helvetica Neue", sans-serif; }
     width: 100% !important;
     height: 100% !important;
 }
+
+.cal-weekend .cal-cell-top {
+    background-color: rgba(224, 224, 224, 0.424) !important;
+}

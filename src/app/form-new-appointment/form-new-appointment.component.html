@@ -1,14 +1,14 @@
 <div class="form-new-appointment">
 
   <div class="form-header">
-    <span class="form-title">Neuen Termin:</span>
+    <span class="form-title">{{this.updating ? 'Termin Bearbeiten' : 'Neuen Termin:'}}</span>
     <span class="form-patient-name">{{ this.data.patientName || this.patientName }}</span>
   </div>
   <app-datetimepicker [autoOpen]="datePickerAutoOpen" placeholderDate="Date" placeholderTime="Time"
     (dateUpdate)="handleDateChange($event)" (timeUpdate)="handleTimeChange($event)"></app-datetimepicker>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="description" name="description" placeholder="Description">
+    <input matInput [(ngModel)]="description" name="description" placeholder="Description" required>
   </mat-form-field>
 
   <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>

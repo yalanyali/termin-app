@@ -5,6 +5,13 @@ import { map, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 
+/**
+ * A persistent template component.
+ * 
+ * Every other component gets rendered inside `NavigationComponent`.
+ * 
+ * Observes screen size to dynamically toggle the side navigation menu.
+ */
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',

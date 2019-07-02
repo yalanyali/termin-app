@@ -1,0 +1,10 @@
+<div class="form-new-appointment-note">
+  <div class="form-header">
+    <span class="form-title">Notizen Hinzufügen</span>
+    <mat-form-field class="note-field">
+      <textarea [(ngModel)]="note" matInput placeholder="Notizen"></textarea>
+      <!-- <mat-error *ngIf="f1.firstName.errors">{{""}}</mat-error> -->
+    </mat-form-field>
+    <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>
+  </div>
+</div>

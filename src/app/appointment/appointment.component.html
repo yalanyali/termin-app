@@ -1,3 +1,9 @@
-<p>
-  appointment works!
-</p>
+<app-content-card title="Termine">
+  <list-component #list class="list-component"
+  [dataObservable]="appointmentObservable"
+  [columns]="listColumns"
+  (onClickOutput)="handleAppointmentOnClick($event)"
+  [canHideOlder]="true"
+  >
+  </list-component>
+</app-content-card>

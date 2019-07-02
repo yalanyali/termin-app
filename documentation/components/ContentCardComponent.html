@@ -1,0 +1,612 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>termin-app-v2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">termin-app-v2 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ContentCardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/content-card/content-card.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>One of the main components.</p>
+<p>Every non-persistent component gets rendered in a <code>ContentCardComponent</code>.</p>
+<p>Observes screen size for the ability to switch views dynamically.</p>
+
+    </p>
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-content-card</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./content-card.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./content-card.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cards">cards</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handleFabButtonOnClick">handleFabButtonOnClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#fabButton">fabButton</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#fabButtonOnClick">fabButtonOnClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(breakpointObserver: BreakpointObserver)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/content-card/content-card.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>breakpointObserver</td>
+                                                  
+                                                        <td>
+                                                                    <code>BreakpointObserver</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fabButton"></a>
+                        <b>fabButton</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/content-card/content-card.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/content-card/content-card.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fabButtonOnClick"></a>
+                        <b>fabButtonOnClick</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/content-card/content-card.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleFabButtonOnClick"></a>
+                    <span class="name">
+                        <b>
+                            handleFabButtonOnClick
+                        </b>
+                        <a href="#handleFabButtonOnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleFabButtonOnClick()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/content-card/content-card.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cards"></a>
+                        <span class="name">
+                            <b>
+                            cards</b>
+                            <a href="#cards"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    // TODO: Consider multiple card layouts.
+    map(({ matches }) &#x3D;&gt; {
+      return [
+        { title: &#x27;Card 1&#x27;, cols: 2, rows: 2 }
+      ];
+    })
+  )</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/content-card/content-card.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Based on the screen size, switch from standard to one column per row </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, EventEmitter, Output } from &#x27;@angular/core&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { Breakpoints, BreakpointObserver } from &#x27;@angular/cdk/layout&#x27;;
+
+/**
+ * One of the main components.
+ * 
+ * Every non-persistent component gets rendered in a &#x60;ContentCardComponent&#x60;.
+ * 
+ * Observes screen size for the ability to switch views dynamically.
+ */
+@Component({
+  selector: &#x27;app-content-card&#x27;,
+  templateUrl: &#x27;./content-card.component.html&#x27;,
+  styleUrls: [&#x27;./content-card.component.css&#x27;]
+})
+export class ContentCardComponent {
+  @Input(&#x27;title&#x27;) title: string;
+  @Input(&#x27;fabButton&#x27;) fabButton: boolean &#x3D; false; 
+  @Output() fabButtonOnClick: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  
+  /** Based on the screen size, switch from standard to one column per row */
+  cards &#x3D; this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    // TODO: Consider multiple card layouts.
+    map(({ matches }) &#x3D;&gt; {
+      return [
+        { title: &#x27;Card 1&#x27;, cols: 2, rows: 2 }
+      ];
+    })
+  );
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  handleFabButtonOnClick() {
+    this.fabButtonOnClick.emit({}); // TODO
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;grid-container&quot;&gt;
+  &lt;!-- &lt;h1 class&#x3D;&quot;mat-h1&quot;&gt;Dashboard&lt;/h1&gt; --&gt;
+  &lt;mat-grid-list cols&#x3D;&quot;2&quot; rowHeight&#x3D;&quot;350px&quot;&gt;
+    &lt;mat-grid-tile *ngFor&#x3D;&quot;let card of cards | async&quot; [colspan]&#x3D;&quot;card.cols&quot; [rowspan]&#x3D;&quot;card.rows&quot;&gt;
+      &lt;mat-card class&#x3D;&quot;content-card&quot;&gt;
+        &lt;mat-card-header&gt;
+          &lt;mat-card-title *ngIf&#x3D;&quot;title&quot;&gt;
+            {{title}}
+          &lt;/mat-card-title&gt;
+        &lt;/mat-card-header&gt;
+        &lt;mat-card-content class&#x3D;&quot;content-card-content&quot;&gt;
+          &lt;!-- &lt;div&gt;Card Content Here&lt;/div&gt; --&gt;
+          &lt;br&gt;
+          &lt;ng-content&gt;&lt;/ng-content&gt;
+        &lt;/mat-card-content&gt;
+        &lt;button *ngIf&#x3D;&quot;fabButton&quot; (click)&#x3D;&quot;handleFabButtonOnClick()&quot; class&#x3D;&quot;fab-button&quot; color&#x3D;&quot;primary&quot; mat-fab&gt;
+            &lt;mat-icon [inline]&#x3D;&quot;true&quot; style&#x3D;&quot;font-size: 36px;&quot; aria-label&#x3D;&quot;Add new&quot;&gt;add&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-card&gt;
+    &lt;/mat-grid-tile&gt;
+  &lt;/mat-grid-list&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./content-card.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.grid-container {
+  margin: 20px;
+}
+
+.content-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  /* background-color: #fafafa; */
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.content-card-content {
+  text-align: center;
+  height: 100%;
+}
+
+.fab-button {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="grid-container">  <!-- <h1 class="mat-h1">Dashboard</h1> -->  <mat-grid-list cols="2" rowHeight="350px">    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">      <mat-card class="content-card">        <mat-card-header>          <mat-card-title *ngIf="title">            {{title}}          </mat-card-title>        </mat-card-header>        <mat-card-content class="content-card-content">          <!-- <div>Card Content Here</div> -->          <br>          <ng-content></ng-content>        </mat-card-content>        <button *ngIf="fabButton" (click)="handleFabButtonOnClick()" class="fab-button" color="primary" mat-fab>            <mat-icon [inline]="true" style="font-size: 36px;" aria-label="Add new">add</mat-icon>        </button>      </mat-card>    </mat-grid-tile>  </mat-grid-list></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentComponent', 'selector': 'app-appointment'},{'name': 'BottomSheetComponent', 'selector': 'app-bottom-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ContentCardComponent', 'selector': 'app-content-card'},{'name': 'DatetimepickerComponent', 'selector': 'app-datetimepicker'},{'name': 'FormAppointmentAddNoteComponent', 'selector': 'app-form-appointment-add-note'},{'name': 'FormDeleteAppointmentComponent', 'selector': 'app-form-delete-appointment'},{'name': 'FormDeletePatientComponent', 'selector': 'app-form-delete-patient'},{'name': 'FormNewAppointmentComponent', 'selector': 'app-form-new-appointment'},{'name': 'FormNewPatientComponent', 'selector': 'app-form-new-patient'},{'name': 'FormNewPrescriptionComponent', 'selector': 'app-form-new-prescription'},{'name': 'HomeComponent', 'selector': 'home-component'},{'name': 'ListComponent', 'selector': 'list-component'},{'name': 'LoginComponent', 'selector': ''},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PatientComponent', 'selector': 'app-patient'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ContentCardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContentCardComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

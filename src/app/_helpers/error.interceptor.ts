@@ -5,6 +5,9 @@ import { catchError } from 'rxjs/operators';
 
 import { AuthenticationService } from '../_services';
 
+/**
+ * Logs out user when server responds any request with code 401 (Invalid credentials).
+ */
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(private authenticationService: AuthenticationService) {}

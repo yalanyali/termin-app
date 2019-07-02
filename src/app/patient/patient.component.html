@@ -1,4 +1,4 @@
-<app-content-card title="Patient/-in" fabButton="true" (fabButtonOnClick)="handleFabButtonOnClick()">
+<app-content-card title="Patient/-in" [fabButton]="true" (fabButtonOnClick)="handleFabButtonOnClick()">
     <list-component #list class="list-component"
     [dataObservable]="patientObservable"
     [columns]="listColumns"

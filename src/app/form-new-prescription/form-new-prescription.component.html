@@ -1,0 +1,71 @@
+<div class="form-new-prescription">
+
+  <mat-accordion>
+    <mat-expansion-panel [disabled]="true" [expanded]="addToDatabasePanelOpened">
+      <mat-expansion-panel-header class="expansion-header">
+        <form class="prescription-form" [formGroup]='medicineForm'>
+          <mat-form-field class="medicine-form">
+            <input (keydown)="handleKeydown($event)" type="text" placeholder="Medikament" aria-label="medicine" matInput formControlName="userInput"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" showPanel="showAutocompletePanel" [displayWith]="displayFn">
+              <mat-option *ngIf="isLoading" class="is-loading">
+                <mat-spinner diameter="20"></mat-spinner>
+              </mat-option>
+              <ng-container *ngIf="!isLoading">
+                <mat-option *ngFor="let medicine of filteredMedicine" [value]="medicine">
+                  {{medicine.name}}
+                </mat-option>
+              </ng-container>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button class="add-button" mat-stroked-button (click)="handleAddButton()">Hinzufügen</button>
+        </form>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <mat-form-field>
+          <textarea matInput [(ngModel)]="newMedicine.description" placeholder="Bemerkungen"></textarea>
+        </mat-form-field>
+        <button class="new-button" mat-stroked-button color="primary" (click)="handleNewButton()">Speichern</button>
+      </ng-template>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-card class="prescription-card">
+    <div class="medicine-list">
+      <mat-list>
+        <mat-list-item>
+          <div class="prescription-title">
+            <span class="patient-name">{{ 'Für: ' + this.data.patientName || this.patientName }}</span>
+            <span class="date">{{ currentDate }}</span>
+          </div>
+        </mat-list-item>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-list-item *ngIf="prescription.medicine.length === 0" class="medicine-placeholder">
+          Es gibt noch keine Medikament.
+        </mat-list-item>
+        <mat-list-item *ngFor="let medicine of prescription.medicine">
+          <mat-icon matListIcon style="cursor: default;">local_pharmacy</mat-icon>
+          <h3 matLine> {{ medicine.name }} </h3>
+          <p matLine>
+            <span> {{ medicine.description }} </span>
+          </p>
+          <button mat-icon-button (click)="handleDeleteButton(medicine)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <mat-divider *ngIf="prescription.medicine.indexOf(medicine) !== prescription.medicine.length - 1">
+          </mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card>
+
+
+  <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>
+  <div *ngIf="!formError.hidden" class="form-error-content">
+    <span *ngIf="formError.type === 'conflict'" class="form-error-text">Time conflict: </span>
+    <span *ngIf="formError.type === 'value'" class="form-error-text">Value error: </span>
+    <span class="form-error-patient">{{ formError.text }}</span>
+  </div>
+</div>

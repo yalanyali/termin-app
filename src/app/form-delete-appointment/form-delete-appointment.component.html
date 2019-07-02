@@ -1,0 +1,18 @@
+<div class="form-delete-appointment">
+
+  <div class="form-header">
+    <span class="form-title">Termin Absagen</span>
+    <br>
+    <span>Möchten Sie den Termin absagen?</span>
+    <br>
+    <span class="form-appointment-info">{{ this.data.patientName + ': ' + this.data.dateTime }}</span>
+  </div>
+
+  <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>
+
+  <div *ngIf="!formError.hidden" class="form-error-content">
+    <span class="form-error-text">Fehler: </span>
+    <span class="form-error-appointment">{{ formError.text }}</span>
+  </div>
+
+</div>

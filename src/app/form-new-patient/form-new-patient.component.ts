@@ -6,11 +6,18 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar, MatStepper } from '@angular
 import { PatientService } from '../_services';
 
 import * as _moment from 'moment';
-import { Patient, Appointment } from '../_models';
+import { Patient, Appointment, Address } from '../_models';
 import { ValidateUniqueValues } from '../validators/GenericBackendValidator';
 
 const moment = _moment;
 
+/**
+ * New `Patient` creation dialog.
+ * 
+ * Has a reactive form to get `Patient` info.
+ * 
+ * Also used when updating an `Patient`.
+ */
 @Component({
   selector: 'app-form-new-patient',
   templateUrl: './form-new-patient.component.html',
@@ -29,7 +36,8 @@ export class FormNewPatientComponent implements OnInit {
   appointment: Appointment = new Appointment();
   appointmentMade: boolean = false;
   datetime: _moment.Moment;
- 
+  updating: boolean = false;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<FormNewPatientComponent>,
@@ -39,42 +47,52 @@ export class FormNewPatientComponent implements OnInit {
 
   }
 
-
   ngOnInit() {
+    // When data has patient object, component updates current info
+    this.updating = !!this.data.patient;
+
+    // Helper function to shorten default value assignments
+    const p = (attribute, subattribute = null) => {
+      if (!!this.data.patient) {
+        if (subattribute) {
+          return this.data.patient[attribute][subattribute];
+        } else {
+          return this.data.patient[attribute];
+        }
+      } else {
+        return '';
+      }
+    };
+
     this.basicInfoForm = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.minLength(2)]],
-      gender: ['', Validators.required],
-      email: ['',
-        [Validators.required, Validators.minLength(5), Validators.email],
-        [ValidateUniqueValues.createValidator(this.patientService, 'email')]
+      firstName: [p('firstName'), [Validators.required, Validators.minLength(2)]],
+      lastName: [p('lastName'), [Validators.required, Validators.minLength(2)]],
+      gender: [p('gender'), Validators.required],
+      dateOfBirth: [moment(p('dateOfBirth'), 'DD.MM.YYYY').toDate(), Validators.required],
+      email: [p('email'),
+      [Validators.required, Validators.minLength(5), Validators.email],
+      [ValidateUniqueValues.createValidator(this.patientService, 'email', p('email'))]
       ],
-      insuranceNumber: ['',
-        [Validators.required],
-        [ValidateUniqueValues.createValidator(this.patientService, 'insuranceNumber')]
+      insuranceNumber: [p('insuranceNumber'),
+      [Validators.required],
+      [ValidateUniqueValues.createValidator(this.patientService, 'insuranceNumber', p('insuranceNumber'))]
       ]
     });
     this.addressForm = this.formBuilder.group({
-      phoneNumber: ['',
-        [Validators.required, Validators.pattern('^0\\d{11}$')],
-        [ValidateUniqueValues.createValidator(this.patientService, 'phoneNumber')]
+      phoneNumber: [p('phoneNumber'),
+      [Validators.required, Validators.pattern('^0\\d{11}$')],
+      [ValidateUniqueValues.createValidator(this.patientService, 'phoneNumber', p('phoneNumber'))]
       ],
-      state: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      street: ['', [Validators.required]],
-      buildingNumber: ['', [Validators.required]],
-      zip: ['', [Validators.required]]
+      state: [p('address', 'state'), [Validators.required]],
+      city: [p('address', 'city'), [Validators.required]],
+      street: [p('address', 'street'), [Validators.required]],
+      buildingNumber: [p('address', 'buildingNumber'), [Validators.required]],
+      zip: [p('address', 'zip'), [Validators.required]]
     });
   }
 
   get f1() { return this.basicInfoForm.controls; }
   get f2() { return this.addressForm.controls; }
-
-  handleDateChange(e) {
-    this.datetime = moment(e);
-    this.patient.dateOfBirth = this.datetime.format('DD.MM.YYYY');
-    this.patient.diseaseIdList = "";
-  }
 
   handleNewAppointmentClose(newAppointment: Appointment) {
     // Appointment created
@@ -83,37 +101,65 @@ export class FormNewPatientComponent implements OnInit {
     this.stepper.next();
   }
 
+  readForm() {
+    console.log(this.f1, this.f2)
+    // Form 1 has patient attributes
+    Object.keys(this.f1).map(key => {
+      if (key === 'dateOfBirth') {
+        // Convert to default format
+        this.patient[key] = moment(this.f1[key].value).format('DD.MM.YYYY');
+      } else {
+        this.patient[key] = this.f1[key].value;
+      }
+    });
+    // Form 2 has phoneNumber of patient and all address attributes
+    this.patient.address = new Address();
+    Object.keys(this.f2).map(key => {
+      if (key === 'phoneNumber') {
+        this.patient[key] = this.f2[key].value;
+      } else {
+        this.patient.address[key] = this.f2[key].value;
+      }
+    });
+  }
+
   createPatient() {
     if (this.patient.id) { return; }
-    Object.keys(this.f1).map(key => {
-      this.patient[key] = this.f1[key].value
-      // console.log(this.f1[key].value)
-    })
-    Object.keys(this.f2).map(key => {
-      this.patient[key] = this.f2[key].value
-      // console.log(this.f2[key])
-    })
-    this.patientService.addNewPatient(this.patient).subscribe(res => {
-      if (res.id) {
-        this._snackBar.open("Patient created!", '', {
-          duration: 3000
-        });
-        this.patient.id = res.id;
-        console.log("NEW PATIENT ID:", res.id);
-      } else if (res.error) {
-        this._snackBar.open("Problem: " + res.error, '', {
-          duration: 3000
-        });
-      }
-    })
+    this.readForm()
+    if (this.updating) {
+      // UPDATE
+      this.patientService.updatePatient(this.data.patient.id, this.patient).subscribe(res => {
+        if (res.id) {
+          this._snackBar.open("Patient updated!", '', {
+            duration: 3000
+          });
+          this.patient.id = res.id;
+        } else if (res.error) {
+          this._snackBar.open("Problem: " + res.error, '', {
+            duration: 3000
+          });
+        }
+      })
+    } else {
+      // CREATE
+      this.patientService.addNewPatient(this.patient).subscribe(res => {
+        if (res.data.id) {
+          this._snackBar.open("Patient created!", '', {
+            duration: 3000
+          });
+          this.patient.id = res.data.id;
+        } else if (res.error) {
+          this._snackBar.open("Problem: " + res.error, '', {
+            duration: 3000
+          });
+        }
+      })
+    }
+
   }
 
   close() {
     this.dialogRef.close();
-  }
-
-  test() {
-    console.log(this.f2.phoneNumber.errors)
   }
 
 }

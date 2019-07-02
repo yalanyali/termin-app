@@ -16,7 +16,9 @@ class DateConfig {
   startDate: Date;
 }
 
-
+/**
+ * A flexible component for time and date pickers.
+ */
 @Component({
   selector: 'app-datetimepicker',
   templateUrl: './datetimepicker.component.html',
@@ -24,11 +26,23 @@ class DateConfig {
 })
 export class DatetimepickerComponent implements OnInit {
 
+  /**
+  * Placeholder text for date input.
+  */
   @Input() placeholderDate: string;
+  /**
+  * Placeholder text for date input.
+  */
   @Input() placeholderTime: string;
   @Input() model: Date;
   @Input() purpose: string;
+  /**
+  * No time picker when true.
+  */
   @Input() dateOnly: boolean;
+  /**
+  * Time picker pops up directly after render when true.
+  */
   @Input() autoOpen: boolean = false;
 
   @Output() dateUpdate = new EventEmitter<Date>();

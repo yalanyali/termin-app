@@ -1,0 +1,8 @@
+<app-content-card title="Medikament">
+  <list-component #list class="list-component"
+  [dataObservable]="medicineObservable"
+  [columns]="listColumns"
+  (onClickOutput)="handleMedicineOnClick($event)"
+  >
+  </list-component>
+</app-content-card>

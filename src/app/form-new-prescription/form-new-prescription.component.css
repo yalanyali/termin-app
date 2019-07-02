@@ -1,0 +1,70 @@
+.form-new-prescription {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+  
+.form-new-prescription > * {
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    font-size: 18px;
+}
+
+.form-patient-name {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-error-content {
+    margin-top: 20px;
+    color: red;
+}
+
+.add-button, .new-button {
+    margin-left: 50px;
+}
+
+.prescription-card {
+    padding: 0px 5px 0px 5px !important;
+    width: 97% !important;
+    margin: 20px 0px 20px 0px !important;
+    box-shadow: 0 1px 3px 2px rgba(0,0,0,.12), 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 3px 0 rgba(0,0,0,.12) !important;
+}
+
+.prescription-title {
+    width: 100%;
+}
+
+.patient-name {
+    /* margin-top: -4px; */
+    float: left;
+    font-weight: 500;
+}
+
+.date {
+    /* margin-top: -4px; */
+    float: right;
+    font-weight: 500;
+}
+
+.expansion-header {
+    height: 78px !important;
+}
+
+::ng-deep .medicine-placeholder > div {
+    justify-content: center;
+}
+
+::ng-deep .mat-expansion-panel-header[aria-disabled=true] {
+    color: rgba(0,0,0,.87);
+    padding: 8px 24px 0px 24px;
+}

@@ -26,6 +26,11 @@ const colors: any = {
   }
 };
 
+/**
+ * Calendar view component.
+ * 
+ * Fetches `Appointment` data `onInit` to populate views.
+ */
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -59,12 +64,12 @@ export class CalendarComponent implements OnInit {
         // @ts-ignore: Appointment[] !== Appointment ???
         map((appointments: Appointment[]) => {
           return appointments.map((a: Appointment) => {
-            const datetime = moment(a.dateTime, 'DD.MM.YYYY hh:mm').toDate();
+            const dateTime = moment(a.dateTime, 'DD.MM.YYYY HH:mm').toDate();
             return {
-              title: a.patient,
+              title: `${a.patient.firstName} ${a.patient.lastName}`,
               color: colors.blue,
-              start: datetime,
-              end: addMinutes(datetime, 30)
+              start: dateTime,
+              end: addMinutes(dateTime, 30)
             }
           });
         }));
@@ -72,12 +77,14 @@ export class CalendarComponent implements OnInit {
 
   viewChange(view: string) {
     this.view = view;
-    console.log(this.view);
   }
 
-  dayClicked(day: CalendarMonthViewDay): void {
-    console.log(day);
-    this.selectedMonthViewDay = day;
+  dayClicked(ev): void {
+    // Ignore weekends
+    if (ev.day.isWeekend) { return; }
+    this.viewDate = ev.day.date;
+    this.view = 'day';
+    this.selectedMonthViewDay = ev.day;
   }
 
   hourSegmentClicked(date: Date) {

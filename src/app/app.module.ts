@@ -23,6 +23,7 @@ import {
   MatInputModule,
   MatProgressSpinnerModule,
   MatTableModule,
+  MatPaginatorIntl,
   MatSortModule,
   MatBottomSheetModule,
   MatDialogModule,
@@ -35,7 +36,9 @@ import {
   MatAutocompleteModule,
   MatSnackBarModule,
   MAT_DATE_FORMATS,
-  MAT_DATE_LOCALE
+  MAT_DATE_LOCALE,
+  MatSlideToggleModule,
+  MatExpansionModule
 } from '@angular/material';
 
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -46,7 +49,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { CalendarModule, DateAdapter as DateAdapterCalendar } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
-import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
+import { getGermanPaginatorIntl } from './list/german-paginator-intl';
+import { ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ContentCardComponent } from './content-card/content-card.component';
@@ -61,6 +65,14 @@ import { DatetimepickerComponent } from './datetimepicker/datetimepicker.compone
 import { FormDeletePatientComponent } from './form-delete-patient/form-delete-patient.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { FormDeleteAppointmentComponent } from './form-delete-appointment/form-delete-appointment.component';
+import { RequestInterceptor } from './_helpers/request.interceptor';
+import { FormAppointmentAddNoteComponent } from './form-appointment-add-note/form-appointment-add-note.component';
+import { FormNewPrescriptionComponent } from './form-new-prescription/form-new-prescription.component';
+import { MedicineComponent } from './medicine/medicine.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { FormDeleteMedicineComponent } from './form-delete-medicine/form-delete-medicine.component';
+import { FormDeletePrescriptionComponent } from './form-delete-prescription/form-delete-prescription.component';
 
 
 
@@ -119,7 +131,9 @@ export const DATE_FORMATS = {
     MatRadioModule,
     MatChipsModule,
     MatSnackBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSlideToggleModule,
+    MatExpansionModule
   ],
   declarations: [
     AppComponent,
@@ -135,19 +149,31 @@ export const DATE_FORMATS = {
     DatetimepickerComponent,
     FormDeletePatientComponent,
     AppointmentComponent,
-    CalendarComponent
+    CalendarComponent,
+    FormDeleteAppointmentComponent,
+    FormAppointmentAddNoteComponent,
+    FormNewPrescriptionComponent,
+    MedicineComponent,
+    PrescriptionComponent,
+    FormDeleteMedicineComponent,
+    FormDeletePrescriptionComponent
   ],
   entryComponents: [
     BottomSheetComponent,
     FormNewPatientComponent,
+    FormDeletePatientComponent,
     FormNewAppointmentComponent,
-    FormDeletePatientComponent
+    FormDeleteAppointmentComponent,
+    FormAppointmentAddNoteComponent,
+    FormNewPrescriptionComponent,
+    FormDeleteMedicineComponent
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS }
+    { provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS },
+    { provide: MatPaginatorIntl, useValue: getGermanPaginatorIntl() }
   ],
   bootstrap: [AppComponent]
 })

@@ -9,7 +9,13 @@ import { FormNewAppointmentComponent } from '../form-new-appointment/form-new-ap
 import { FormNewPatientComponent } from '../form-new-patient/form-new-patient.component';
 import { FormDeletePatientComponent } from '../form-delete-patient/form-delete-patient.component';
 import { ListComponent } from '../list/list.component';
+import { FormNewPrescriptionComponent } from '../form-new-prescription/form-new-prescription.component';
 
+/**
+ * Renders a list of patients.
+ * 
+ * Can dynamically render bottom sheet menu and dialog components for `Patient` business logic.
+ */
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html',
@@ -57,6 +63,12 @@ export class PatientComponent implements OnInit {
             "description": `Ein neues Rezept hinzufügen`
           },
           {
+            "id": "update_patient",
+            "icon": "edit",
+            "text": "Bearbeiten...",
+            "description": `Information bearbeiten`
+          },
+          {
             "id": "delete_patient",
             "icon": "person_add_disabled",
             "text": "Daten löschen...",
@@ -76,9 +88,14 @@ export class PatientComponent implements OnInit {
       case 'add_appointment':
         this.openNewAppointmentDialog();
         break;
+      case 'add_prescription':
+        this.openNewPrescriptionDialog();
+        break;
       case 'delete_patient':
         this.openDeletePatientDialog();
         break;
+      case 'update_patient':
+        this.openUpdatePatientDialog();
       default:
         break;
     }
@@ -112,8 +129,35 @@ export class PatientComponent implements OnInit {
     });
   }
 
+  async openUpdatePatientDialog() {
+    const patient = await this.patientService.getPatient(this.selectedPatient.id).toPromise();
+    ['appointments', 'diseases', 'prescriptions'].forEach(key => delete patient[key])
+    const dialogRef = this.dialog.open(FormNewPatientComponent, {
+      data: { patient }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // To refresh the list
+      this.listRef.refreshList();
+    });
+  }
+
   openDeletePatientDialog() {
     const dialogRef = this.dialog.open(FormDeletePatientComponent, {
+      data: {
+        id: this.selectedPatient.id,
+        patientName: `${this.selectedPatient.firstName} ${this.selectedPatient.lastName}`
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // To refresh the list
+      this.listRef.refreshList();
+    });
+  }
+
+  openNewPrescriptionDialog() {
+    const dialogRef = this.dialog.open(FormNewPrescriptionComponent, {
       data: {
         id: this.selectedPatient.id,
         patientName: `${this.selectedPatient.firstName} ${this.selectedPatient.lastName}`

@@ -1,0 +1,19 @@
+.form-delete-medicine {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+  
+.form-delete-medicine > * {
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    font-size: 18px;
+}

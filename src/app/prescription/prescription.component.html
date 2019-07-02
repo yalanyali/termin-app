@@ -1,0 +1,8 @@
+<app-content-card title="Rezept">
+    <list-component #list class="list-component"
+    [dataObservable]="prescriptionObservable"
+    [columns]="listColumns"
+    (onClickOutput)="handlePrescriptionOnClick($event)"
+    >
+    </list-component>
+  </app-content-card>

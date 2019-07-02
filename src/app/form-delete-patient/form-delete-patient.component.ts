@@ -4,6 +4,10 @@ import { PatientService } from '../_services';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 
 
+/**
+* A popup dialog to confirm `Patient` deletion.
+* Calls `PatientService.deletePatient()` on confirmation.
+*/
 @Component({
   selector: 'app-form-delete-patient',
   templateUrl: './form-delete-patient.component.html',

@@ -1,0 +1,993 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>termin-app-v2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">termin-app-v2 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>AppointmentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/appointment/appointment.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Renders a list of appointments.</p>
+<p>Can dynamically render bottom sheet menu and dialog components for <code>Appointment</code> business logic.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-appointment</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./appointment.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./appointment.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#appointmentObservable">appointmentObservable</a>
+                            </li>
+                            <li>
+                                <a href="#listColumns">listColumns</a>
+                            </li>
+                            <li>
+                                <a href="#listRef">listRef</a>
+                            </li>
+                            <li>
+                                <a href="#selectedAppointment">selectedAppointment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handleAppointmentOnClick">handleAppointmentOnClick</a>
+                            </li>
+                            <li>
+                                <a href="#handleBottomSheetButton">handleBottomSheetButton</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openAppointmentRecordDialog">openAppointmentRecordDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openBottomSheet">openBottomSheet</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteAppointmentDialog">openDeleteAppointmentDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openUpdateAppointmentDialog">openUpdateAppointmentDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(appointmentService: <a href="../injectables/AppointmentService.html">AppointmentService</a>, bottomSheet: MatBottomSheet, dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/appointment/appointment.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>appointmentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AppointmentService.html" target="_self" >AppointmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bottomSheet</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatBottomSheet</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAppointmentOnClick"></a>
+                    <span class="name">
+                        <b>
+                            handleAppointmentOnClick
+                        </b>
+                        <a href="#handleAppointmentOnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleAppointmentOnClick(e)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleBottomSheetButton"></a>
+                    <span class="name">
+                        <b>
+                            handleBottomSheetButton
+                        </b>
+                        <a href="#handleBottomSheetButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleBottomSheetButton(buttonId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>buttonId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openAppointmentRecordDialog"></a>
+                    <span class="name">
+                        <b>
+                            openAppointmentRecordDialog
+                        </b>
+                        <a href="#openAppointmentRecordDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openAppointmentRecordDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openBottomSheet"></a>
+                    <span class="name">
+                        <b>
+                            openBottomSheet
+                        </b>
+                        <a href="#openBottomSheet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openBottomSheet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDeleteAppointmentDialog"></a>
+                    <span class="name">
+                        <b>
+                            openDeleteAppointmentDialog
+                        </b>
+                        <a href="#openDeleteAppointmentDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDeleteAppointmentDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:141</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openUpdateAppointmentDialog"></a>
+                    <span class="name">
+                        <b>
+                            openUpdateAppointmentDialog
+                        </b>
+                        <a href="#openUpdateAppointmentDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openUpdateAppointmentDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">src/app/appointment/appointment.component.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appointmentObservable"></a>
+                        <span class="name">
+                            <b>
+                            appointmentObservable</b>
+                            <a href="#appointmentObservable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/appointment/appointment.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listColumns"></a>
+                        <span class="name">
+                            <b>
+                            listColumns</b>
+                            <a href="#listColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>AppointmentColumns</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/appointment/appointment.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listRef"></a>
+                        <span class="name">
+                            <b>
+                            listRef</b>
+                            <a href="#listRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/ListComponent.html" target="_self" >ListComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(ListComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/appointment/appointment.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedAppointment"></a>
+                        <span class="name">
+                            <b>
+                            selectedAppointment</b>
+                            <a href="#selectedAppointment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/appointment/appointment.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+
+import { MatBottomSheet, MatDialog } from &#x27;@angular/material&#x27;;
+
+import { AppointmentColumns } from &#x27;../_models&#x27;;
+import { AppointmentService } from &#x27;../_services&#x27;;
+import { BottomSheetComponent } from &#x27;../bottom-sheet/bottom-sheet.component&#x27;;
+import { FormNewAppointmentComponent } from &#x27;../form-new-appointment/form-new-appointment.component&#x27;;
+import { FormNewPatientComponent } from &#x27;../form-new-patient/form-new-patient.component&#x27;;
+import { ListComponent } from &#x27;../list/list.component&#x27;;
+import { map, mapTo } from &#x27;rxjs/operators&#x27;;
+import { FormDeleteAppointmentComponent } from &#x27;../form-delete-appointment/form-delete-appointment.component&#x27;;
+import { FormAppointmentAddNoteComponent } from &#x27;../form-appointment-add-note/form-appointment-add-note.component&#x27;;
+
+/**
+ * Renders a list of appointments.
+ * 
+ * Can dynamically render bottom sheet menu and dialog components for &#x60;Appointment&#x60; business logic.
+ */
+@Component({
+  selector: &#x27;app-appointment&#x27;,
+  templateUrl: &#x27;./appointment.component.html&#x27;,
+  styleUrls: [&#x27;./appointment.component.css&#x27;]
+})
+export class AppointmentComponent implements OnInit {
+
+  selectedAppointment;
+  appointmentObservable;
+  listColumns &#x3D; AppointmentColumns;
+
+  @ViewChild(ListComponent) listRef: ListComponent;
+
+  constructor(
+    private appointmentService: AppointmentService,
+    private bottomSheet: MatBottomSheet,
+    private dialog: MatDialog) {
+    this.appointmentObservable &#x3D; appointmentService.getAll().pipe(
+      // @ts-ignore: Appointment[] !&#x3D;&#x3D; Appointment ???
+      map((appointments: Appointment[]) &#x3D;&gt; {
+        return appointments.map(appointment &#x3D;&gt; {
+          let flatObj &#x3D; {
+            ...appointment,
+            firstName: appointment.patient.firstName,
+            lastName: appointment.patient.lastName,
+            patientId: appointment.patient.id,
+            description: appointment.description !&#x3D;&#x3D; &#x27;undefined&#x27; ? appointment.description : &#x27;Keine Angabe&#x27;
+          }
+          delete flatObj.patient
+          return flatObj
+        })
+      })
+    )
+  }
+
+  ngOnInit() {
+    // this.appointmentObservable.subscribe(a &#x3D;&gt; console.log(a))
+  }
+
+  handleAppointmentOnClick(e) {
+    this.selectedAppointment &#x3D; e;
+    this.openBottomSheet();
+  }
+
+  openBottomSheet() {
+    const sheet &#x3D; this.bottomSheet.open(BottomSheetComponent, {
+      hasBackdrop: true,
+      data: {
+        buttons: [
+          {
+            &quot;id&quot;: &quot;add_appointment_record&quot;,
+            &quot;icon&quot;: &quot;add_comment&quot;,
+            &quot;text&quot;: &quot;Notizen hinzufügen...&quot;,
+            &quot;description&quot;: &#x60;Notizen zum Termin hinzufügen&#x60;
+          },
+          {
+            &quot;id&quot;: &quot;update_appointment&quot;,
+            &quot;icon&quot;: &quot;update&quot;,
+            &quot;text&quot;: &quot;Termin bearbeiten...&quot;,
+            &quot;description&quot;: &#x27;Datum/Notizen des Termins bearbeiten&#x27;//&#x60;Alle Daten von ${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName} löschen&#x60;
+          },
+          {
+            &quot;id&quot;: &quot;delete_appointment&quot;,
+            &quot;icon&quot;: &quot;alarm_off&quot;,
+            &quot;text&quot;: &quot;Termin absagen...&quot;,
+            &quot;description&quot;: &#x60;Termindaten löschen&#x60;
+          }
+        ],
+        title: &#x60;Termin von ${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName}: ${this.selectedAppointment.dateTime}&#x60;,
+        subtitle: this.selectedAppointment.appointmentRecord.notes ? &#x60;Notizen: ${this.selectedAppointment.appointmentRecord.notes}&#x60; : &#x27;&#x27;,
+      }
+    });
+    sheet.afterDismissed().subscribe((buttonId) &#x3D;&gt; {
+      this.handleBottomSheetButton(buttonId);
+    });
+  }
+
+  handleBottomSheetButton(buttonId) {
+    switch (buttonId) {
+      case &#x27;add_appointment_record&#x27;:
+        this.openAppointmentRecordDialog();
+        break;
+      case &#x27;update_appointment&#x27;:
+        this.openUpdateAppointmentDialog();
+        break;
+      case &#x27;delete_appointment&#x27;:
+          this.openDeleteAppointmentDialog();
+          break;
+      default:
+        break;
+    }
+  }
+
+  openAppointmentRecordDialog() {
+    const dialogRef &#x3D; this.dialog.open(FormAppointmentAddNoteComponent, {
+      data: {
+        id: this.selectedAppointment.id,
+        patientName: &#x60;${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName}&#x60;
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      // console.log(result);
+    });
+  }
+
+  openUpdateAppointmentDialog() {
+    const dialogRef &#x3D; this.dialog.open(FormNewAppointmentComponent, {
+      data: {
+        appointment: {
+          id: this.selectedAppointment.id
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      // To refresh the list
+      this.listRef.refreshList();
+    });
+  }
+
+  openDeleteAppointmentDialog() {
+    const dialogRef &#x3D; this.dialog.open(FormDeleteAppointmentComponent, {
+      data: {
+        id: this.selectedAppointment.id,
+        patientName: &#x60;${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName}&#x60;,
+        dateTime: this.selectedAppointment.dateTime
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      // To refresh the list
+      this.listRef.refreshList();
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-content-card title&#x3D;&quot;Termine&quot;&gt;
+  &lt;list-component #list class&#x3D;&quot;list-component&quot;
+  [dataObservable]&#x3D;&quot;appointmentObservable&quot;
+  [columns]&#x3D;&quot;listColumns&quot;
+  (onClickOutput)&#x3D;&quot;handleAppointmentOnClick($event)&quot;
+  [canHideOlder]&#x3D;&quot;true&quot;
+  &gt;
+  &lt;/list-component&gt;
+&lt;/app-content-card&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./appointment.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-content-card title="Termine">  <list-component #list class="list-component"  [dataObservable]="appointmentObservable"  [columns]="listColumns"  (onClickOutput)="handleAppointmentOnClick($event)"  [canHideOlder]="true"  >  </list-component></app-content-card></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentComponent', 'selector': 'app-appointment'},{'name': 'BottomSheetComponent', 'selector': 'app-bottom-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ContentCardComponent', 'selector': 'app-content-card'},{'name': 'DatetimepickerComponent', 'selector': 'app-datetimepicker'},{'name': 'FormAppointmentAddNoteComponent', 'selector': 'app-form-appointment-add-note'},{'name': 'FormDeleteAppointmentComponent', 'selector': 'app-form-delete-appointment'},{'name': 'FormDeletePatientComponent', 'selector': 'app-form-delete-patient'},{'name': 'FormNewAppointmentComponent', 'selector': 'app-form-new-appointment'},{'name': 'FormNewPatientComponent', 'selector': 'app-form-new-patient'},{'name': 'FormNewPrescriptionComponent', 'selector': 'app-form-new-prescription'},{'name': 'HomeComponent', 'selector': 'home-component'},{'name': 'ListComponent', 'selector': 'list-component'},{'name': 'LoginComponent', 'selector': ''},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PatientComponent', 'selector': 'app-patient'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AppointmentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppointmentComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

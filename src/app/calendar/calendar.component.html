@@ -1,23 +1,20 @@
-<!-- <app-calendar-header [(view)]="view" [(viewDate)]="viewDate">
-</app-calendar-header> -->
-
 <div class="calendar-header-container">
 
   <div class="calendar-header-button-container">
     <mat-button-toggle-group>
       <mat-button-toggle class="calendar-header-button-disabled">
         <div mwlCalendarPreviousView [(view)]="view" [(viewDate)]="viewDate" [excludeDays]="excludeDays">
-          Previous
+          Zurück
         </div>
       </mat-button-toggle>
       <mat-button-toggle class="calendar-header-button-disabled">
         <div mwlCalendarToday [(viewDate)]="viewDate">
-          Today
+          Heute
         </div>
       </mat-button-toggle>
       <mat-button-toggle class="calendar-header-button-disabled">
         <div mwlCalendarNextView [(view)]="view" [(viewDate)]="viewDate" [excludeDays]="excludeDays">
-          Next
+          Weiter
         </div>
       </mat-button-toggle>
     </mat-button-toggle-group>
@@ -43,9 +40,20 @@
   </div>
 </ng-template>
 
+<ng-template #cellTooltipTemplate
+             let-event="event">
+    <div class="cal-tooltip cal-tooltip-top">
+        <div class="cal-tooltip-arrow"></div>
+        <div class="cal-tooltip-inner">
+            {{event.title}}<br />
+            {{event.start}}
+        </div>
+    </div>
+</ng-template>
+
 <div [ngSwitch]="view" *ngIf="events | async; else loading; let events">
   <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
-    (dayClicked)="viewDate = $event.day.date; view = 'day'" [weekStartsOn]="weekStartsOn" [locale]="locale">
+    (dayClicked)="dayClicked($event)" [tooltipTemplate]="tooltipTemplate" [weekStartsOn]="weekStartsOn" [locale]="locale">
   </mwl-calendar-month-view>
   <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events"
     (dayHeaderClicked)="viewDate = $event.day.date; view = 'day'" [dayStartHour]=8 [dayEndHour]=16

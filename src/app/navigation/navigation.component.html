@@ -3,13 +3,13 @@
       [attr.role]="(isSmallScreen$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isSmallScreen$ | async) ? 'over' : 'side'"
       [opened]="!(isSmallScreen$ | async)">
-    <mat-toolbar>Praxis Test</mat-toolbar>
+    <mat-toolbar>Test Praxis</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item (click)="toggleSidenav()" routerLinkActive='selected' [routerLink]="['/']"><mat-icon class="sidenav-icon">home</mat-icon>Startseite</a>
-      <a mat-list-item (click)="toggleSidenav()" routerLinkActive='selected' [routerLink]="['/patient']"><mat-icon class="sidenav-icon">people</mat-icon>Patient/-in</a>
-      <a mat-list-item (click)="toggleSidenav()" routerLinkActive='selected' [routerLink]="['/appointment']"><mat-icon class="sidenav-icon">alarm</mat-icon>Termin</a>
-      <a mat-list-item (click)="toggleSidenav()" routerLinkActive='selected' [routerLink]="['/prescription']"><mat-icon class="sidenav-icon">receipt</mat-icon>Rezept</a>
-      <a mat-list-item (click)="toggleSidenav()" routerLinkActive='selected' [routerLink]="['/medicine']"><mat-icon class="sidenav-icon">local_pharmacy</mat-icon>Medikament</a>
+      <a mat-list-item (click)="toggleSidenav()" [routerLink]="['/']"><mat-icon class="sidenav-icon">home</mat-icon>Terminkalender</a>
+      <a mat-list-item (click)="toggleSidenav()" [routerLink]="['/patient']"><mat-icon class="sidenav-icon">people</mat-icon>Patient/-in</a>
+      <a mat-list-item (click)="toggleSidenav()" [routerLink]="['/appointment']"><mat-icon class="sidenav-icon">alarm</mat-icon>Termin</a>
+      <a mat-list-item (click)="toggleSidenav()" [routerLink]="['/prescription']"><mat-icon class="sidenav-icon">receipt</mat-icon>Rezept</a>
+      <a mat-list-item (click)="toggleSidenav()" [routerLink]="['/medicine']"><mat-icon class="sidenav-icon">local_pharmacy</mat-icon>Medikament</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,7 +22,7 @@
         *ngIf="isSmallScreen$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <mat-icon style="font-size: 150%; margin-right: 10px; line-height: 23px;" class="bottom-sheet-icon" aria-label="Side nav toggle icon">local_hospital</mat-icon>
+      <mat-icon style="font-size: 150%; margin-right: 10px !important; line-height: 23px;" class="bottom-sheet-icon" aria-label="Side nav toggle icon">local_hospital</mat-icon>
       <span>Termin App</span>
       <span class="toolbar-spacer"></span>
       <button mat-icon-button [matMenuTriggerFor]="menu">
