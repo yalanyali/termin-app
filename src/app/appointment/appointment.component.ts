@@ -120,6 +120,7 @@ export class AppointmentComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       // console.log(result);
+      this.listRef.refreshList();
     });
   }
 
