@@ -6,9 +6,8 @@ import { AppointmentColumns } from '../_models';
 import { AppointmentService } from '../_services';
 import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 import { FormNewAppointmentComponent } from '../form-new-appointment/form-new-appointment.component';
-import { FormNewPatientComponent } from '../form-new-patient/form-new-patient.component';
 import { ListComponent } from '../list/list.component';
-import { map, mapTo } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { FormDeleteAppointmentComponent } from '../form-delete-appointment/form-delete-appointment.component';
 import { FormAppointmentAddNoteComponent } from '../form-appointment-add-note/form-appointment-add-note.component';
 

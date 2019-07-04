@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class AppointmentService {
 
-  api: string = environment.apiRemote;
+  api: string = environment.apiUrl;
   appointmentUrl: string = `${this.api}/appointment`
 
   constructor(private http: HttpClient) { }

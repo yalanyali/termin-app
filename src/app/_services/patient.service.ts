@@ -14,7 +14,7 @@ const moment = _moment;
 @Injectable({ providedIn: 'root' })
 export class PatientService {
 
-  api: string = environment.apiRemote;
+  api: string = environment.apiUrl;
 
   patientUrl: string = `${this.api}/patient`;
 

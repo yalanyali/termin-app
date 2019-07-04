@@ -11,7 +11,7 @@ import { Prescription } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class PrescriptionService {
 
-  api: string = environment.apiRemote;
+  api: string = environment.apiUrl;
   prescriptionUrl: string = `${this.api}/prescription`;
 
   constructor(private http: HttpClient) { }
@@ -22,6 +22,10 @@ export class PrescriptionService {
 
   deletePrescription(prescriptionId: Number): Observable<any> {
     return this.http.delete<any>(`${this.prescriptionUrl}/${prescriptionId}`);
+  }
+
+  updatePrescription(prescriptionId: Number, prescription: Prescription): Observable<any> {
+    return this.http.put<any>(`${this.prescriptionUrl}/${prescriptionId}`, prescription);
   }
 
 }

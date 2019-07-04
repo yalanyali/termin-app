@@ -6,15 +6,15 @@
 
       <div class="new-patient-info-container">
         <mat-form-field>
-          <input matInput formControlName="firstName" placeholder="First name">
+          <input matInput formControlName="firstName" placeholder="Vorname">
           <mat-error *ngIf="f1.firstName.errors">{{""}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput formControlName="lastName" placeholder="Last name">
+          <input matInput formControlName="lastName" placeholder="Name">
           <mat-error *ngIf="f1.lastName.errors">{{""}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-select formControlName="gender" placeholder="Gender">
+          <mat-select formControlName="gender" placeholder="Geschlecht">
             <mat-option value="Männlich">Männlich</mat-option>
             <mat-option value="Weiblich">Weiblich</mat-option>
           </mat-select>
@@ -25,11 +25,11 @@
             <mat-datepicker #picker startView="multi-year"></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-          <input matInput formControlName="email" placeholder="Email Address">
+          <input matInput formControlName="email" placeholder="E-mail Adresse">
           <mat-error *ngIf="f1.email.errors">{{""}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput formControlName="insuranceNumber" placeholder="Insurance Number">
+          <input matInput formControlName="insuranceNumber" placeholder="Versicherungsnummer">
           <mat-error *ngIf="f1.insuranceNumber.errors">{{""}}</mat-error>
         </mat-form-field>
       </div>
@@ -48,12 +48,12 @@
 
       <div class="new-patient-info-container">
         <mat-form-field>
-          <input matInput formControlName="phoneNumber" placeholder="Phone Number">
+          <input matInput formControlName="phoneNumber" placeholder="Telefonnummer">
             <mat-error *ngIf="f2.phoneNumber.errors && f2.phoneNumber.errors.pattern">{{"Falsche Telefonnummer."}}</mat-error>
             <mat-error *ngIf="f2.phoneNumber.errors && f2.phoneNumber.errors.notUnique">{{"Die Telefonnummer ist bereits vorhanden."}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-select formControlName="state" placeholder="State">
+          <mat-select formControlName="state" placeholder="Bundesland">
             <mat-option value="Baden-Württemberg">Baden-Württemberg</mat-option>
             <mat-option value="Bayern">Bayern</mat-option>
             <mat-option value="Berlin">Berlin</mat-option>
@@ -73,22 +73,22 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-            <input matInput formControlName="city" placeholder="City">
+            <input matInput formControlName="city" placeholder="Stadt">
             <mat-error *ngIf="f2.city.errors">{{""}}</mat-error>
           </mat-form-field>
     
           <mat-form-field>
-            <input matInput formControlName="street" placeholder="Street">
+            <input matInput formControlName="street" placeholder="Straße">
             <mat-error *ngIf="f2.street.errors">{{""}}</mat-error>
           </mat-form-field>
     
           <mat-form-field>
-            <input matInput formControlName="buildingNumber" placeholder="Building No">
+            <input matInput formControlName="buildingNumber" placeholder="Nummer">
             <mat-error *ngIf="f2.buildingNumber.errors">{{""}}</mat-error>
           </mat-form-field>
     
           <mat-form-field>
-            <input matInput formControlName="zip" placeholder="ZIP">
+            <input matInput formControlName="zip" placeholder="PLZ">
             <mat-error *ngIf="f2.zip.errors">{{""}}</mat-error>
           </mat-form-field>
       </div>

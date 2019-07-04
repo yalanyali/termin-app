@@ -8,21 +8,27 @@ import { Prescription, Medicine } from '../_models';
 
 import * as _moment from 'moment';
 import { MedicineService } from '../_services/medicine.service';
+import { PrescriptionService } from '../_services/prescription.service';
 const moment = _moment;
 
+/**
+ * New `Prescription` creation dialog.
+ * 
+ * Also used when updating an `Prescription`.
+ */
 @Component({
   selector: 'app-form-new-prescription',
   templateUrl: './form-new-prescription.component.html',
   styleUrls: ['./form-new-prescription.component.css']
 })
 export class FormNewPrescriptionComponent implements OnInit {
-  @Input() patientName: String = ""; // External use
 
   prescription = new Prescription();
   medicineForm: FormGroup;
   filteredMedicine: Array<Medicine> = [];
   showAutocompletePanel = false;
   isLoading = false;
+  updating = false;
   addToDatabasePanelOpened = false;
   newMedicine = new Medicine();
   formError = {
@@ -40,12 +46,18 @@ export class FormNewPrescriptionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<FormNewPrescriptionComponent>,
     private patientService: PatientService,
+    private prescriptionService: PrescriptionService,
     private medicineService: MedicineService,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
+    // Updating if prescription data was passed
+    if (!!this.data.prescription && !!this.data.prescription.medicine) {
+      this.prescription = this.data.prescription;
+      this.updating = true;
+    }
     this.medicineForm = this.fb.group({
       userInput: null
     })
@@ -154,7 +166,14 @@ export class FormNewPrescriptionComponent implements OnInit {
   }
 
   private handleOkButton() {
-    this.patientService.addPrescription(this.data.id, this.prescription)
+    if (this.updating) {
+      if (this.prescription === this.data.prescription) {
+        // No changes
+        this.dialogRef.close();
+        return;
+      }
+      // Updating current
+      this.prescriptionService.updatePrescription(this.prescription.id, this.prescription)
       .subscribe(res => {
         if (res.success) {
           this.openSnackBar("Rezept gespeichert!");
@@ -163,6 +182,19 @@ export class FormNewPrescriptionComponent implements OnInit {
           this.openSnackBar("Fehler beim Speichern");
         }
       });
+    } else {
+      // Creating new
+      this.patientService.addPrescription(this.data.id, this.prescription)
+        .subscribe(res => {
+          if (res.success) {
+            this.openSnackBar("Rezept gespeichert!");
+            this.dialogRef.close();
+          } else {
+            this.openSnackBar("Fehler beim Speichern");
+          }
+        });
+    }
+
   }
 
 }

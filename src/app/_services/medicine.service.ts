@@ -11,7 +11,7 @@ import { Medicine } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class MedicineService {
 
-  api: string = environment.apiRemote;
+  api: string = environment.apiUrl;
   medicineUrl: string = `${this.api}/medicine`
 
   constructor(private http: HttpClient) { }
@@ -33,6 +33,7 @@ export class MedicineService {
   }
 
   autocomplete(value: String) {
+    console.log(value);
     return this.http.get<Medicine>(`${this.medicineUrl}/search/${value}`);
   }
 
