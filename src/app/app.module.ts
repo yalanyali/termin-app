@@ -6,7 +6,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
-import { routing } from './app.routing';
 
 import {
   MatToolbarModule,
@@ -73,6 +72,7 @@ import { MedicineComponent } from './medicine/medicine.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { FormDeleteMedicineComponent } from './form-delete-medicine/form-delete-medicine.component';
 import { FormDeletePrescriptionComponent } from './form-delete-prescription/form-delete-prescription.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -92,11 +92,11 @@ export const DATE_FORMATS = {
 
 @NgModule({
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    routing,
     BrowserAnimationsModule,
     // Calendar
     CalendarModule.forRoot({
