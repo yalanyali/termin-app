@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>MedicineService</li>
+  <li>AppointmentService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,14 +56,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/_services/medicine.service.ts</code>
+            <code>src/app/_services/appointment.service.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Communication service for <code>/medicine</code> endpoint with standard CRUD functions.</p>
+                <p>Communication service for <code>/appointment</code> endpoint with standard CRUD functions.</p>
 
             </p>
 
@@ -85,7 +85,7 @@
                                 <a href="#api">api</a>
                             </li>
                             <li>
-                                <a href="#medicineUrl">medicineUrl</a>
+                                <a href="#appointmentUrl">appointmentUrl</a>
                             </li>
                         </ul>
                     </td>
@@ -100,19 +100,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#addNewMedicine">addNewMedicine</a>
+                                <a href="#addNotes">addNotes</a>
                             </li>
                             <li>
-                                <a href="#autocomplete">autocomplete</a>
-                            </li>
-                            <li>
-                                <a href="#deleteMedicine">deleteMedicine</a>
+                                <a href="#deleteAppointment">deleteAppointment</a>
                             </li>
                             <li>
                                 <a href="#getAll">getAll</a>
                             </li>
                             <li>
-                                <a href="#updateMedicine">updateMedicine</a>
+                                <a href="#updateAppointment">updateAppointment</a>
                             </li>
                         </ul>
                     </td>
@@ -137,7 +134,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/_services/medicine.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/_services/appointment.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -184,26 +181,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addNewMedicine"></a>
+                    <a name="addNotes"></a>
                     <span class="name">
                         <b>
-                            addNewMedicine
+                            addNotes
                         </b>
-                        <a href="#addNewMedicine"><span class="icon ion-ios-link"></span></a>
+                        <a href="#addNotes"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>addNewMedicine(medicine: <a href="../classes/Medicine.html">Medicine</a>)</code>
+<code>addNotes(appointmentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>, notes: <a href="../classes/AppointmentRecord.html">AppointmentRecord</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/_services/medicine.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/_services/appointment.service.ts:32</a></div>
                 </td>
             </tr>
 
@@ -223,9 +220,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>medicine</td>
+                                    <td>appointmentId</td>
                                     <td>
-                                                <code><a href="../classes/Medicine.html" target="_self" >Medicine</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>notes</td>
+                                    <td>
+                                                <code><a href="../classes/AppointmentRecord.html" target="_self" >AppointmentRecord</a></code>
                                     </td>
 
                                     <td>
@@ -240,7 +249,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -254,26 +263,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="autocomplete"></a>
+                    <a name="deleteAppointment"></a>
                     <span class="name">
                         <b>
-                            autocomplete
+                            deleteAppointment
                         </b>
-                        <a href="#autocomplete"><span class="icon ion-ios-link"></span></a>
+                        <a href="#deleteAppointment"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>autocomplete(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
+<code>deleteAppointment(appointmentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/_services/medicine.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/_services/appointment.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -293,77 +302,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>value</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteMedicine"></a>
-                    <span class="name">
-                        <b>
-                            deleteMedicine
-                        </b>
-                        <a href="#deleteMedicine"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>deleteMedicine(medicineId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/_services/medicine.service.ts:27</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>medicineId</td>
+                                    <td>appointmentId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
                                     </td>
@@ -412,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/_services/medicine.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/_services/appointment.service.ts:20</a></div>
                 </td>
             </tr>
 
@@ -433,26 +372,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateMedicine"></a>
+                    <a name="updateAppointment"></a>
                     <span class="name">
                         <b>
-                            updateMedicine
+                            updateAppointment
                         </b>
-                        <a href="#updateMedicine"><span class="icon ion-ios-link"></span></a>
+                        <a href="#updateAppointment"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateMedicine(medicineId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>, medicine: <a href="../classes/Medicine.html">Medicine</a>)</code>
+<code>updateAppointment(appointmentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>, appointment: <a href="../classes/Appointment.html">Appointment</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/_services/medicine.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/_services/appointment.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -472,7 +411,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>medicineId</td>
+                                    <td>appointmentId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
                                     </td>
@@ -484,9 +423,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>medicine</td>
+                                    <td>appointment</td>
                                     <td>
-                                                <code><a href="../classes/Medicine.html" target="_self" >Medicine</a></code>
+                                                <code><a href="../classes/Appointment.html" target="_self" >Appointment</a></code>
                                     </td>
 
                                     <td>
@@ -537,12 +476,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>environment.apiLocal</code>
+                            <i>Default value : </i><code>environment.apiUrl</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/_services/medicine.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/_services/appointment.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -553,11 +492,11 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="medicineUrl"></a>
+                        <a name="appointmentUrl"></a>
                         <span class="name">
                             <b>
-                            medicineUrl</b>
-                            <a href="#medicineUrl"><span class="icon ion-ios-link"></span></a>
+                            appointmentUrl</b>
+                            <a href="#appointmentUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -569,12 +508,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x60;${this.api}/medicine&#x60;</code>
+                            <i>Default value : </i><code>&#x60;${this.api}/appointment&#x60;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/_services/medicine.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/_services/appointment.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -590,41 +529,37 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 
+import { Appointment, AppointmentRecord } from &#x27;../_models&#x27;;
+
 import { environment } from &#x27;../../environments/environment&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { Medicine } from &#x27;../_models&#x27;;
 
 /**
- * Communication service for &#x60;/medicine&#x60; endpoint with standard CRUD functions.
+ * Communication service for &#x60;/appointment&#x60; endpoint with standard CRUD functions.
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
-export class MedicineService {
+export class AppointmentService {
 
-  api: string &#x3D; environment.apiLocal;
-  medicineUrl: string &#x3D; &#x60;${this.api}/medicine&#x60;
+  api: string &#x3D; environment.apiUrl;
+  appointmentUrl: string &#x3D; &#x60;${this.api}/appointment&#x60;
 
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get&lt;Medicine&gt;(this.medicineUrl);
+    return this.http.get&lt;Appointment&gt;(this.appointmentUrl)
   }
 
-  addNewMedicine(medicine: Medicine) {
-      return this.http.post&lt;any&gt;(this.medicineUrl, medicine);
+  deleteAppointment(appointmentId: Number): Observable&lt;any&gt; {
+    return this.http.delete&lt;any&gt;(&#x60;${this.appointmentUrl}/${appointmentId}&#x60;);
   }
 
-  deleteMedicine(medicineId: Number): Observable&lt;any&gt; {
-    return this.http.delete&lt;any&gt;(&#x60;${this.medicineUrl}/${medicineId}&#x60;);
+  updateAppointment(appointmentId: Number, appointment: Appointment): Observable&lt;any&gt; {
+    return this.http.put&lt;any&gt;(&#x60;${this.appointmentUrl}/${appointmentId}&#x60;, appointment);
   }
 
-  updateMedicine(medicineId: Number, medicine: Medicine): Observable&lt;any&gt; {
-    return this.http.put&lt;any&gt;(&#x60;${this.medicineUrl}/${medicineId}&#x60;, medicine);
+  addNotes(appointmentId: Number, notes: AppointmentRecord): Observable&lt;any&gt; {
+    return this.http.post&lt;any&gt;(&#x60;${this.appointmentUrl}/${appointmentId}/notes&#x60;, notes);
   }
-
-  autocomplete(value: String) {
-    return this.http.get&lt;Medicine&gt;(&#x60;${this.medicineUrl}/search/${value}&#x60;);
-  }
-
 }
 </code></pre>
     </div>
@@ -658,7 +593,7 @@ export class MedicineService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'MedicineService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppointmentService.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

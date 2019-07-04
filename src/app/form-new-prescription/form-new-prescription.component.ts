@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 import { PatientService } from '../_services';
-import { Observable, of } from 'rxjs';
-import { startWith, map, debounceTime, switchMap, finalize, tap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { debounceTime, switchMap, finalize, tap } from 'rxjs/operators';
 import { Prescription, Medicine } from '../_models';
 
 import * as _moment from 'moment';

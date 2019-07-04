@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>AppointmentComponent</li>
+  <li>PrescriptionComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,25 +61,19 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/appointment/appointment.component.ts</code>
+    <code>src/app/prescription/prescription.component.ts</code>
 </p>
 
     <p class="comment">
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Renders a list of appointments.</p>
-<p>Can dynamically render bottom sheet menu and dialog components for <code>Appointment</code> business logic.</p>
+        <p>Renders a list of prescriptions.</p>
+<p>Can dynamically render bottom sheet menu and dialog components for <code>Prescription</code> business logic.</p>
 
     </p>
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -99,19 +93,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-appointment</code></td>
+                <td class="col-md-9"><code>app-prescription</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./appointment.component.css</code></td>
+                <td class="col-md-9"><code>./prescription.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./appointment.component.html</code></td>
+                <td class="col-md-9"><code>./prescription.component.html</code></td>
             </tr>
 
 
@@ -138,16 +132,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#appointmentObservable">appointmentObservable</a>
-                            </li>
-                            <li>
                                 <a href="#listColumns">listColumns</a>
                             </li>
                             <li>
                                 <a href="#listRef">listRef</a>
                             </li>
                             <li>
-                                <a href="#selectedAppointment">selectedAppointment</a>
+                                <a href="#prescriptionObservable">prescriptionObservable</a>
+                            </li>
+                            <li>
+                                <a href="#selectedPrescription">selectedPrescription</a>
                             </li>
                         </ul>
                     </td>
@@ -162,25 +156,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#handleAppointmentOnClick">handleAppointmentOnClick</a>
-                            </li>
-                            <li>
                                 <a href="#handleBottomSheetButton">handleBottomSheetButton</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
-                            </li>
-                            <li>
-                                <a href="#openAppointmentRecordDialog">openAppointmentRecordDialog</a>
+                                <a href="#handlePrescriptionOnClick">handlePrescriptionOnClick</a>
                             </li>
                             <li>
                                 <a href="#openBottomSheet">openBottomSheet</a>
                             </li>
                             <li>
-                                <a href="#openDeleteAppointmentDialog">openDeleteAppointmentDialog</a>
+                                <a href="#openDeletePrescriptionDialog">openDeletePrescriptionDialog</a>
                             </li>
                             <li>
-                                <a href="#openUpdateAppointmentDialog">openUpdateAppointmentDialog</a>
+                                <a href="#openUpdatePrescriptionDialog">openUpdatePrescriptionDialog</a>
                             </li>
                         </ul>
                     </td>
@@ -200,12 +188,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(appointmentService: <a href="../injectables/AppointmentService.html">AppointmentService</a>, bottomSheet: MatBottomSheet, dialog: MatDialog)</code>
+<code>constructor(prescriptionService: <a href="../injectables/PrescriptionService.html">PrescriptionService</a>, bottomSheet: MatBottomSheet, dialog: MatDialog)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/appointment/appointment.component.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/prescription/prescription.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -223,10 +211,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>appointmentService</td>
+                                                        <td>prescriptionService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AppointmentService.html" target="_self" >AppointmentService</a></code>
+                                                                        <code><a href="../injectables/PrescriptionService.html" target="_self" >PrescriptionService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -280,72 +268,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="handleAppointmentOnClick"></a>
-                    <span class="name">
-                        <b>
-                            handleAppointmentOnClick
-                        </b>
-                        <a href="#handleAppointmentOnClick"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>handleAppointmentOnClick(e)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>e</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="handleBottomSheetButton"></a>
                     <span class="name">
                         <b>
@@ -364,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/prescription/prescription.component.ts:81</a></div>
                 </td>
             </tr>
 
@@ -412,26 +334,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="handlePrescriptionOnClick"></a>
                     <span class="name">
                         <b>
-                            ngOnInit
+                            handlePrescriptionOnClick
                         </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <a href="#handlePrescriptionOnClick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+<code>handlePrescriptionOnClick(e)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/prescription/prescription.component.ts:50</a></div>
                 </td>
             </tr>
 
@@ -439,48 +361,36 @@
             <tr>
                 <td class="col-md-4">
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="openAppointmentRecordDialog"></a>
-                    <span class="name">
-                        <b>
-                            openAppointmentRecordDialog
-                        </b>
-                        <a href="#openAppointmentRecordDialog"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>openAppointmentRecordDialog()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:113</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -508,8 +418,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/prescription/prescription.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -529,26 +439,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="openDeleteAppointmentDialog"></a>
+                    <a name="openDeletePrescriptionDialog"></a>
                     <span class="name">
                         <b>
-                            openDeleteAppointmentDialog
+                            openDeletePrescriptionDialog
                         </b>
-                        <a href="#openDeleteAppointmentDialog"><span class="icon ion-ios-link"></span></a>
+                        <a href="#openDeletePrescriptionDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>openDeleteAppointmentDialog()</code>
+<code>openDeletePrescriptionDialog()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/prescription/prescription.component.ts:94</a></div>
                 </td>
             </tr>
 
@@ -568,26 +478,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="openUpdateAppointmentDialog"></a>
+                    <a name="openUpdatePrescriptionDialog"></a>
                     <span class="name">
                         <b>
-                            openUpdateAppointmentDialog
+                            openUpdatePrescriptionDialog
                         </b>
-                        <a href="#openUpdateAppointmentDialog"><span class="icon ion-ios-link"></span></a>
+                        <a href="#openUpdatePrescriptionDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>openUpdateAppointmentDialog()</code>
+<code>openUpdatePrescriptionDialog()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">src/app/appointment/appointment.component.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/prescription/prescription.component.ts:108</a></div>
                 </td>
             </tr>
 
@@ -613,27 +523,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="appointmentObservable"></a>
-                        <span class="name">
-                            <b>
-                            appointmentObservable</b>
-                            <a href="#appointmentObservable"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/appointment/appointment.component.ts:28</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="listColumns"></a>
                         <span class="name">
                             <b>
@@ -644,12 +533,12 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>AppointmentColumns</code>
+                            <i>Default value : </i><code>PrescriptionColumns</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/appointment/appointment.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/prescription/prescription.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -685,7 +574,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/appointment/appointment.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/prescription/prescription.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -696,17 +585,38 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectedAppointment"></a>
+                        <a name="prescriptionObservable"></a>
                         <span class="name">
                             <b>
-                            selectedAppointment</b>
-                            <a href="#selectedAppointment"><span class="icon ion-ios-link"></span></a>
+                            prescriptionObservable</b>
+                            <a href="#prescriptionObservable"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/appointment/appointment.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/prescription/prescription.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedPrescription"></a>
+                        <span class="name">
+                            <b>
+                            selectedPrescription</b>
+                            <a href="#selectedPrescription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/prescription/prescription.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -719,66 +629,57 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-
-import { MatBottomSheet, MatDialog } from &#x27;@angular/material&#x27;;
-
-import { AppointmentColumns } from &#x27;../_models&#x27;;
-import { AppointmentService } from &#x27;../_services&#x27;;
-import { BottomSheetComponent } from &#x27;../bottom-sheet/bottom-sheet.component&#x27;;
-import { FormNewAppointmentComponent } from &#x27;../form-new-appointment/form-new-appointment.component&#x27;;
-import { FormNewPatientComponent } from &#x27;../form-new-patient/form-new-patient.component&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
+import { PrescriptionColumns, Prescription } from &#x27;../_models&#x27;;
 import { ListComponent } from &#x27;../list/list.component&#x27;;
-import { map, mapTo } from &#x27;rxjs/operators&#x27;;
-import { FormDeleteAppointmentComponent } from &#x27;../form-delete-appointment/form-delete-appointment.component&#x27;;
-import { FormAppointmentAddNoteComponent } from &#x27;../form-appointment-add-note/form-appointment-add-note.component&#x27;;
+import { MatBottomSheet, MatDialog } from &#x27;@angular/material&#x27;;
+import { BottomSheetComponent } from &#x27;../bottom-sheet/bottom-sheet.component&#x27;;
+import { FormDeletePrescriptionComponent } from &#x27;../form-delete-prescription/form-delete-prescription.component&#x27;;
+import { PrescriptionService } from &#x27;../_services/prescription.service&#x27;;
+import { map, tap } from &#x27;rxjs/operators&#x27;;
+import { FormNewPrescriptionComponent } from &#x27;../form-new-prescription/form-new-prescription.component&#x27;;
 
 /**
- * Renders a list of appointments.
+ * Renders a list of prescriptions.
  * 
- * Can dynamically render bottom sheet menu and dialog components for &#x60;Appointment&#x60; business logic.
+ * Can dynamically render bottom sheet menu and dialog components for &#x60;Prescription&#x60; business logic.
  */
 @Component({
-  selector: &#x27;app-appointment&#x27;,
-  templateUrl: &#x27;./appointment.component.html&#x27;,
-  styleUrls: [&#x27;./appointment.component.css&#x27;]
+  selector: &#x27;app-prescription&#x27;,
+  templateUrl: &#x27;./prescription.component.html&#x27;,
+  styleUrls: [&#x27;./prescription.component.css&#x27;]
 })
-export class AppointmentComponent implements OnInit {
+export class PrescriptionComponent {
 
-  selectedAppointment;
-  appointmentObservable;
-  listColumns &#x3D; AppointmentColumns;
+  selectedPrescription;
+  prescriptionObservable;
+  listColumns &#x3D; PrescriptionColumns;
 
   @ViewChild(ListComponent) listRef: ListComponent;
 
   constructor(
-    private appointmentService: AppointmentService,
+    private prescriptionService: PrescriptionService,
     private bottomSheet: MatBottomSheet,
     private dialog: MatDialog) {
-    this.appointmentObservable &#x3D; appointmentService.getAll().pipe(
-      // @ts-ignore: Appointment[] !&#x3D;&#x3D; Appointment ???
-      map((appointments: Appointment[]) &#x3D;&gt; {
-        return appointments.map(appointment &#x3D;&gt; {
+    this.prescriptionObservable &#x3D; prescriptionService.getAll().pipe(
+      // @ts-ignore: prescriptions &#x3D; Array&lt;Prescription&gt; ???
+      map((prescriptions: Array&lt;Prescription&gt;) &#x3D;&gt; {
+        return prescriptions.map(prescription &#x3D;&gt; {
           let flatObj &#x3D; {
-            ...appointment,
-            firstName: appointment.patient.firstName,
-            lastName: appointment.patient.lastName,
-            patientId: appointment.patient.id,
-            description: appointment.description !&#x3D;&#x3D; &#x27;undefined&#x27; ? appointment.description : &#x27;Keine Angabe&#x27;
-          }
-          delete flatObj.patient
-          return flatObj
-        })
+            ...prescription,
+            firstName: prescription.patient.firstName,
+            lastName: prescription.patient.lastName,
+            patientId: prescription.patient.id
+          };
+          delete flatObj.patient;
+          return flatObj;
+        });
       })
-    )
+    );
   }
 
-  ngOnInit() {
-    // this.appointmentObservable.subscribe(a &#x3D;&gt; console.log(a))
-  }
-
-  handleAppointmentOnClick(e) {
-    this.selectedAppointment &#x3D; e;
+  handlePrescriptionOnClick(e) {
+    this.selectedPrescription &#x3D; e;
     this.openBottomSheet();
   }
 
@@ -788,26 +689,19 @@ export class AppointmentComponent implements OnInit {
       data: {
         buttons: [
           {
-            &quot;id&quot;: &quot;add_appointment_record&quot;,
-            &quot;icon&quot;: &quot;add_comment&quot;,
-            &quot;text&quot;: &quot;Notizen hinzufügen...&quot;,
-            &quot;description&quot;: &#x60;Notizen zum Termin hinzufügen&#x60;
+            &quot;id&quot;: &quot;update_prescription&quot;,
+            &quot;icon&quot;: &quot;receipt&quot;,
+            &quot;text&quot;: &quot;Ansehen...&quot;,
+            &quot;description&quot;: &#x60;Rezept ansehen/bearbeiten&#x60;
           },
           {
-            &quot;id&quot;: &quot;update_appointment&quot;,
-            &quot;icon&quot;: &quot;update&quot;,
-            &quot;text&quot;: &quot;Termin bearbeiten...&quot;,
-            &quot;description&quot;: &#x27;Datum/Notizen des Termins bearbeiten&#x27;//&#x60;Alle Daten von ${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName} löschen&#x60;
-          },
-          {
-            &quot;id&quot;: &quot;delete_appointment&quot;,
-            &quot;icon&quot;: &quot;alarm_off&quot;,
-            &quot;text&quot;: &quot;Termin absagen...&quot;,
-            &quot;description&quot;: &#x60;Termindaten löschen&#x60;
+            &quot;id&quot;: &quot;delete_prescription&quot;,
+            &quot;icon&quot;: &quot;delete&quot;,
+            &quot;text&quot;: &quot;Löschen...&quot;,
+            &quot;description&quot;: &#x60;Rezept löschen&#x60;
           }
         ],
-        title: &#x60;Termin von ${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName}: ${this.selectedAppointment.dateTime}&#x60;,
-        subtitle: this.selectedAppointment.appointmentRecord.notes ? &#x60;Notizen: ${this.selectedAppointment.appointmentRecord.notes}&#x60; : &#x27;&#x27;,
+        title: this.selectedPrescription.name
       }
     });
     sheet.afterDismissed().subscribe((buttonId) &#x3D;&gt; {
@@ -817,59 +711,41 @@ export class AppointmentComponent implements OnInit {
 
   handleBottomSheetButton(buttonId) {
     switch (buttonId) {
-      case &#x27;add_appointment_record&#x27;:
-        this.openAppointmentRecordDialog();
+      case &#x27;delete_prescription&#x27;:
+        this.openDeletePrescriptionDialog();
         break;
-      case &#x27;update_appointment&#x27;:
-        this.openUpdateAppointmentDialog();
+      case &#x27;update_prescription&#x27;:
+        this.openUpdatePrescriptionDialog();
         break;
-      case &#x27;delete_appointment&#x27;:
-          this.openDeleteAppointmentDialog();
-          break;
       default:
         break;
     }
   }
 
-  openAppointmentRecordDialog() {
-    const dialogRef &#x3D; this.dialog.open(FormAppointmentAddNoteComponent, {
+  openDeletePrescriptionDialog() {
+    const dialogRef &#x3D; this.dialog.open(FormDeletePrescriptionComponent, {
       data: {
-        id: this.selectedAppointment.id,
-        patientName: &#x60;${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName}&#x60;
+        id: this.selectedPrescription.id,
+        prescriptionName: this.selectedPrescription.name
       }
     });
 
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      // console.log(result);
-    });
-  }
-
-  openUpdateAppointmentDialog() {
-    const dialogRef &#x3D; this.dialog.open(FormNewAppointmentComponent, {
-      data: {
-        appointment: {
-          id: this.selectedAppointment.id
-        }
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      // To refresh the list
+      // Refresh the list
       this.listRef.refreshList();
     });
   }
 
-  openDeleteAppointmentDialog() {
-    const dialogRef &#x3D; this.dialog.open(FormDeleteAppointmentComponent, {
+  openUpdatePrescriptionDialog() {
+    const dialogRef &#x3D; this.dialog.open(FormNewPrescriptionComponent, {
       data: {
-        id: this.selectedAppointment.id,
-        patientName: &#x60;${this.selectedAppointment.firstName} ${this.selectedAppointment.lastName}&#x60;,
-        dateTime: this.selectedAppointment.dateTime
+        prescription: this.selectedPrescription,
+        patientName: &#x60;${this.selectedPrescription.firstName} ${this.selectedPrescription.lastName}&#x60;
       }
     });
 
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      // To refresh the list
+      // Refresh the list
       this.listRef.refreshList();
     });
   }
@@ -879,20 +755,19 @@ export class AppointmentComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-content-card title&#x3D;&quot;Termine&quot;&gt;
-  &lt;list-component #list class&#x3D;&quot;list-component&quot;
-  [dataObservable]&#x3D;&quot;appointmentObservable&quot;
-  [columns]&#x3D;&quot;listColumns&quot;
-  (onClickOutput)&#x3D;&quot;handleAppointmentOnClick($event)&quot;
-  [canHideOlder]&#x3D;&quot;true&quot;
-  &gt;
-  &lt;/list-component&gt;
-&lt;/app-content-card&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;app-content-card title&#x3D;&quot;Rezept&quot;&gt;
+    &lt;list-component #list class&#x3D;&quot;list-component&quot;
+    [dataObservable]&#x3D;&quot;prescriptionObservable&quot;
+    [columns]&#x3D;&quot;listColumns&quot;
+    (onClickOutput)&#x3D;&quot;handlePrescriptionOnClick($event)&quot;
+    &gt;
+    &lt;/list-component&gt;
+  &lt;/app-content-card&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./appointment.component.css</code>
+                    <code>./prescription.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
@@ -922,10 +797,10 @@ export class AppointmentComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-content-card title="Termine">  <list-component #list class="list-component"  [dataObservable]="appointmentObservable"  [columns]="listColumns"  (onClickOutput)="handleAppointmentOnClick($event)"  [canHideOlder]="true"  >  </list-component></app-content-card></div>'
+        var COMPONENT_TEMPLATE = '<div><app-content-card title="Rezept">    <list-component #list class="list-component"    [dataObservable]="prescriptionObservable"    [columns]="listColumns"    (onClickOutput)="handlePrescriptionOnClick($event)"    >    </list-component>  </app-content-card></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentComponent', 'selector': 'app-appointment'},{'name': 'BottomSheetComponent', 'selector': 'app-bottom-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ContentCardComponent', 'selector': 'app-content-card'},{'name': 'DatetimepickerComponent', 'selector': 'app-datetimepicker'},{'name': 'FormAppointmentAddNoteComponent', 'selector': 'app-form-appointment-add-note'},{'name': 'FormDeleteAppointmentComponent', 'selector': 'app-form-delete-appointment'},{'name': 'FormDeleteMedicineComponent', 'selector': 'app-form-delete-medicine'},{'name': 'FormDeletePatientComponent', 'selector': 'app-form-delete-patient'},{'name': 'FormDeletePrescriptionComponent', 'selector': 'app-form-delete-prescription'},{'name': 'FormNewAppointmentComponent', 'selector': 'app-form-new-appointment'},{'name': 'FormNewPatientComponent', 'selector': 'app-form-new-patient'},{'name': 'FormNewPrescriptionComponent', 'selector': 'app-form-new-prescription'},{'name': 'HomeComponent', 'selector': 'home-component'},{'name': 'ListComponent', 'selector': 'list-component'},{'name': 'LoginComponent', 'selector': ''},{'name': 'MedicineComponent', 'selector': 'app-medicine'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PatientComponent', 'selector': 'app-patient'},{'name': 'PrescriptionComponent', 'selector': 'app-prescription'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'AppointmentComponent'};
+    var ACTUAL_COMPONENT = {'name': 'PrescriptionComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -959,7 +834,7 @@ export class AppointmentComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppointmentComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'PrescriptionComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

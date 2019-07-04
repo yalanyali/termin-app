@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>AuthenticationService</li>
+  <li>UserService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,15 +56,15 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/_services/authentication.service.ts</code>
+            <code>src/app/_services/user.service.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Authenticates with username and password using HttpClient.
-Authentication hash is stored in local storage on successful login.</p>
+                <p>Communication service for <code>/user</code> endpoint.
+<code>/user</code> endpoint acts like an auth endpoint on backend server.</p>
 
             </p>
 
@@ -98,10 +98,7 @@ Authentication hash is stored in local storage on successful login.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#login">login</a>
-                            </li>
-                            <li>
-                                <a href="#logout">logout</a>
+                                <a href="#getAll">getAll</a>
                             </li>
                         </ul>
                     </td>
@@ -126,7 +123,7 @@ Authentication hash is stored in local storage on successful login.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/_services/authentication.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/_services/user.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -173,26 +170,26 @@ Authentication hash is stored in local storage on successful login.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="login"></a>
+                    <a name="getAll"></a>
                     <span class="name">
                         <b>
-                            login
+                            getAll
                         </b>
-                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>login(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getAll()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/_services/authentication.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/_services/user.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -200,90 +197,8 @@ Authentication hash is stored in local storage on successful login.</p>
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>username</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>password</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logout"></a>
-                    <span class="name">
-                        <b>
-                            logout
-                        </b>
-                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>logout()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/_services/authentication.service.ts:37</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                 </td>
@@ -316,12 +231,12 @@ Authentication hash is stored in local storage on successful login.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>environment.apiLocal</code>
+                            <i>Default value : </i><code>environment.apiUrl</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/_services/authentication.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/_services/user.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -335,46 +250,30 @@ Authentication hash is stored in local storage on successful login.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+
+import { User } from &#x27;../_models&#x27;;
 
 import { environment } from &#x27;../../environments/environment&#x27;;
 
 /**
- * Authenticates with username and password using HttpClient.
- * Authentication hash is stored in local storage on successful login.
+ * Communication service for &#x60;/user&#x60; endpoint.
+ * &#x60;/user&#x60; endpoint acts like an auth endpoint on backend server.
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
-export class AuthenticationService {
+export class UserService {
 
-  api: string &#x3D; environment.apiLocal;
+    api: string &#x3D; environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  login(username: string, password: string) {
-
-    const authHash &#x3D; btoa(username + &#x27;:&#x27; + password);
-    const httpOptions &#x3D; {
-      headers: new HttpHeaders({
-        &#x27;Authorization&#x27;: &#x27;Basic &#x27; + authHash
-      })
-    };
-
-    return this.http.get&lt;any&gt;(&#x60;${this.api}/auth&#x60;, httpOptions)
-      .pipe(map(res &#x3D;&gt; {
-        if (res.success) {
-          // store user details and basic auth credentials in local storage 
-          // to keep user logged in between page refreshes
-          localStorage.setItem(&#x27;currentUser&#x27;, authHash);
-        }
-      }));
-  }
-
-  logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem(&#x27;currentUser&#x27;);
-  }
+    getAll() {
+        // A test request to verify data response
+        // Any valid request would do
+        return this.http.get&lt;User&gt;(&#x60;${this.api}/patient&#x60;)
+    }
 }
+
 </code></pre>
     </div>
 
@@ -407,7 +306,7 @@ export class AuthenticationService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserService.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -8,13 +8,13 @@
     (dateUpdate)="handleDateChange($event)" (timeUpdate)="handleTimeChange($event)"></app-datetimepicker>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="description" name="description" placeholder="Description" required>
+    <input matInput [(ngModel)]="description" name="description" placeholder="Beschwerde" required>
   </mat-form-field>
 
   <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>
   <div *ngIf="!formError.hidden" class="form-error-content">
-    <span *ngIf="formError.type === 'conflict'" class="form-error-text">Time conflict: </span>
-    <span *ngIf="formError.type === 'value'" class="form-error-text">Value error: </span>
+    <span *ngIf="formError.type === 'conflict'" class="form-error-text">Zeitkonflikt: </span>
+    <span *ngIf="formError.type === 'value'" class="form-error-text">Fehler: </span>
     <span class="form-error-patient">{{ formError.text }}</span>
   </div>
 </div>
