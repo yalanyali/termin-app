@@ -1,4 +1,4 @@
-<mat-horizontal-stepper [linear]="false" #stepper>
+<mat-horizontal-stepper [linear]="!updating" #stepper>
   <mat-step [stepControl]="basicInfoForm">
 
     <form [formGroup]="basicInfoForm" class="form-new-patient">

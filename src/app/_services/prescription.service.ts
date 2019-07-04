@@ -25,6 +25,7 @@ export class PrescriptionService {
   }
 
   updatePrescription(prescriptionId: Number, prescription: Prescription): Observable<any> {
+    console.log(prescription)
     return this.http.put<any>(`${this.prescriptionUrl}/${prescriptionId}`, prescription);
   }
 

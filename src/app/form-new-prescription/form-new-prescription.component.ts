@@ -55,7 +55,7 @@ export class FormNewPrescriptionComponent implements OnInit {
   ngOnInit() {
     // Updating if prescription data was passed
     if (!!this.data.prescription && !!this.data.prescription.medicine) {
-      this.prescription = this.data.prescription;
+      this.prescription = {...this.data.prescription}; // Copy of the passed prescription
       this.updating = true;
     }
     this.medicineForm = this.fb.group({
@@ -175,7 +175,7 @@ export class FormNewPrescriptionComponent implements OnInit {
       // Updating current
       this.prescriptionService.updatePrescription(this.prescription.id, this.prescription)
       .subscribe(res => {
-        if (res.success) {
+        if (res.message === 'success') {
           this.openSnackBar("Rezept gespeichert!");
           this.dialogRef.close();
         } else {
