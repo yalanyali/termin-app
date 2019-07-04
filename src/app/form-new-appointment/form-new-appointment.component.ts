@@ -68,6 +68,15 @@ export class FormNewAppointmentComponent implements OnInit {
     this.datetime = moment(e);
   }
 
+  isBetweenWorkingHours(date) {
+    const minutesOfDay = (m) => {
+      return m.minutes() + m.hours() * 60;
+    }
+    const first = moment('08:00', 'HH:mm');
+    const second = moment('16:30', 'HH:mm');
+    return (minutesOfDay(first) <= minutesOfDay(date)) && (minutesOfDay(date) <= minutesOfDay(second));
+  }
+
   handleOkButton() {
     this.formError.hidden = true;
     if (!this.timeSet) {
@@ -91,11 +100,11 @@ export class FormNewAppointmentComponent implements OnInit {
         'text': 'Wochendende'
       });
       return;
-    } else if (!this.datetime.isBetween(moment('08:00', 'HH:mm'), moment('16:30', 'HH:mm'))) {
+    } else if (!this.isBetweenWorkingHours(this.datetime)) {
       // Outside of working hours
       this.buttonFeedback({
         'color': 'warn',
-        'text': 'ERROR'
+        'text': 'Außer Öffnungszeiten'
       });
       return;
     }
@@ -116,7 +125,7 @@ export class FormNewAppointmentComponent implements OnInit {
             this.formError.text = res.patient;
             this.buttonFeedback({
               'color': 'warn',
-              'text': 'ERROR'
+              'text': 'Fehler'
             })
           }
         });
