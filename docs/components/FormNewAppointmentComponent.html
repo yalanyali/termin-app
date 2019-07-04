@@ -190,6 +190,9 @@
                                 <a href="#handleTimeChange">handleTimeChange</a>
                             </li>
                             <li>
+                                <a href="#isBetweenWorkingHours">isBetweenWorkingHours</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
@@ -457,8 +460,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">src/app/form-new-appointment/form-new-appointment.component.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">src/app/form-new-appointment/form-new-appointment.component.ts:154</a></div>
                 </td>
             </tr>
 
@@ -604,8 +607,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/form-new-appointment/form-new-appointment.component.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/form-new-appointment/form-new-appointment.component.ts:80</a></div>
                 </td>
             </tr>
 
@@ -678,6 +681,72 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBetweenWorkingHours"></a>
+                    <span class="name">
+                        <b>
+                            isBetweenWorkingHours
+                        </b>
+                        <a href="#isBetweenWorkingHours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isBetweenWorkingHours(date)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/form-new-appointment/form-new-appointment.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1087,6 +1156,15 @@ export class FormNewAppointmentComponent implements OnInit {
     this.datetime &#x3D; moment(e);
   }
 
+  isBetweenWorkingHours(date) {
+    const minutesOfDay &#x3D; (m) &#x3D;&gt; {
+      return m.minutes() + m.hours() * 60;
+    }
+    const first &#x3D; moment(&#x27;08:00&#x27;, &#x27;HH:mm&#x27;);
+    const second &#x3D; moment(&#x27;16:30&#x27;, &#x27;HH:mm&#x27;);
+    return (minutesOfDay(first) &lt;&#x3D; minutesOfDay(date)) &amp;&amp; (minutesOfDay(date) &lt;&#x3D; minutesOfDay(second));
+  }
+
   handleOkButton() {
     this.formError.hidden &#x3D; true;
     if (!this.timeSet) {
@@ -1110,11 +1188,11 @@ export class FormNewAppointmentComponent implements OnInit {
         &#x27;text&#x27;: &#x27;Wochendende&#x27;
       });
       return;
-    } else if (!this.datetime.isBetween(moment(&#x27;08:00&#x27;, &#x27;HH:mm&#x27;), moment(&#x27;16:30&#x27;, &#x27;HH:mm&#x27;))) {
+    } else if (!this.isBetweenWorkingHours(this.datetime)) {
       // Outside of working hours
       this.buttonFeedback({
         &#x27;color&#x27;: &#x27;warn&#x27;,
-        &#x27;text&#x27;: &#x27;ERROR&#x27;
+        &#x27;text&#x27;: &#x27;Außer Öffnungszeiten&#x27;
       });
       return;
     }
@@ -1135,7 +1213,7 @@ export class FormNewAppointmentComponent implements OnInit {
             this.formError.text &#x3D; res.patient;
             this.buttonFeedback({
               &#x27;color&#x27;: &#x27;warn&#x27;,
-              &#x27;text&#x27;: &#x27;ERROR&#x27;
+              &#x27;text&#x27;: &#x27;Fehler&#x27;
             })
           }
         });
