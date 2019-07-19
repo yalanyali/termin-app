@@ -63,6 +63,7 @@ export class CalendarComponent implements OnInit {
       .pipe(
         // @ts-ignore: Appointment[] !== Appointment ???
         map((appointments: Appointment[]) => {
+          console.log(appointments)
           return appointments.map((a: Appointment) => {
             const dateTime = moment(a.dateTime, 'DD.MM.YYYY HH:mm').toDate();
             return {

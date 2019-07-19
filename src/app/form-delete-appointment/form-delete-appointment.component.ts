@@ -42,7 +42,7 @@ export class FormDeleteAppointmentComponent implements OnInit {
     let appointmentId = this.data.id || this.appointmentId;
     this.appointmentService.deleteAppointment(appointmentId)
       .subscribe(res => {
-        if (res.success) {
+        if (res.message === 'success') {
           this.buttonFeedback({
             'color': 'accent',
             'text': 'Success'

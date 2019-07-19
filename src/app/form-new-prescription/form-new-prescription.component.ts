@@ -186,7 +186,7 @@ export class FormNewPrescriptionComponent implements OnInit {
       // Creating new
       this.patientService.addPrescription(this.data.id, this.prescription)
         .subscribe(res => {
-          if (res.success) {
+          if (res.message === 'success') {
             this.openSnackBar("Rezept gespeichert!");
             this.dialogRef.close();
           } else {

@@ -30,7 +30,7 @@ export class FormDeletePrescriptionComponent {
     let prescriptionId = this.data.id;
     this.prescriptionService.deletePrescription(prescriptionId)
       .subscribe(res => {
-        if (res.success) {
+        if (res.message === 'success') {
           this.buttonFeedback({
             'color': 'accent',
             'text': 'Success'

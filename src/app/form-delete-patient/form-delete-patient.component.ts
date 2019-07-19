@@ -44,7 +44,7 @@ export class FormDeletePatientComponent implements OnInit {
     let patientId = this.data.id || this.patientId;
     this.patientService.deletePatient(patientId)
       .subscribe(res => {
-        if (res.success) {
+        if (res.message === 'success') {
           this.buttonFeedback({
             'color': 'accent',
             'text': 'Success'

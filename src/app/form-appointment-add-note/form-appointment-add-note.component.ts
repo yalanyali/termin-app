@@ -42,7 +42,7 @@ export class FormAppointmentAddNoteComponent implements OnInit {
     let appointmentId = this.data.id
     this.appointmentService.addNotes(appointmentId, appointmentRecord)
       .subscribe(res => {
-        if (res.success) {
+        if (res.message === 'success') {
           this.buttonFeedback({
             'color': 'accent',
             'text': 'Success'

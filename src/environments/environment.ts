@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const apiRemote = 'https://termin-api.herokuapp.com/api';
+const apiRemote = 'http://yigit.crabdance.com';
 const apiLocal = 'http://localhost:8080/api';
 const apiLAN = 'http://192.168.0.31:8080/api';
 

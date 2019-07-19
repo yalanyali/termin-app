@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 import * as _moment from 'moment';
 import { PatientService, AppointmentService } from '../_services';
@@ -44,14 +44,8 @@ export class FormNewAppointmentComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<FormNewAppointmentComponent>,
-    // private fb: FormBuilder,
     private patientService: PatientService,
     private appointmentService: AppointmentService) {
-    // this.form = fb.group({
-    //   appointmentDate: [moment(), Validators.required],
-    //   appointmentTime: [Validators.required]
-    // });
-    // this.patientObservable = patientService.getAll();
   }
 
   ngOnInit() {
@@ -83,21 +77,21 @@ export class FormNewAppointmentComponent implements OnInit {
       this.formError.type = 'value';
       this.buttonFeedback({
         'color': 'warn',
-        'text': 'Appointment time was not set!'
+        'text': 'Terminzeit nicht festgelegt'
       });
       return;
     } else if (!this.description) {
       this.formError.type = 'value';
       this.buttonFeedback({
         'color': 'warn',
-        'text': 'Description was not set!'
+        'text': 'Keine Angabe für Beschwerde'
       });
       return;
     } else if ([0, 6].includes(this.datetime.toDate().getDay())) {
       // Weekend
       this.buttonFeedback({
         'color': 'warn',
-        'text': 'Wochendende'
+        'text': 'Wochenende'
       });
       return;
     } else if (!this.isBetweenWorkingHours(this.datetime)) {
@@ -114,10 +108,10 @@ export class FormNewAppointmentComponent implements OnInit {
     if (this.updating) {
       this.appointmentService.updateAppointment(this.data.appointment.id, this.appointment)
         .subscribe(res => {
-          if (res.success) {
+          if (res.message === 'success') {
             this.buttonFeedback({
               'color': 'accent',
-              'text': 'Success'
+              'text': 'Erfolgreich'
             }, true)
           } else {
             this.formError.hidden = false;
@@ -132,10 +126,10 @@ export class FormNewAppointmentComponent implements OnInit {
     } else {
       this.patientService.addAppointment(patientId, this.appointment)
         .subscribe(res => {
-          if (res.success) {
+          if (res.message === 'success') {
             this.buttonFeedback({
               'color': 'accent',
-              'text': 'Success'
+              'text': 'Erfolgreich'
             }, true)
           } else {
             this.formError.hidden = false;
@@ -143,7 +137,7 @@ export class FormNewAppointmentComponent implements OnInit {
             this.formError.text = res.patient;
             this.buttonFeedback({
               'color': 'warn',
-              'text': 'ERROR'
+              'text': 'Fehler'
             })
           }
         });
