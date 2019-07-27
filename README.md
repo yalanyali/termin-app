@@ -15,7 +15,6 @@ Termin App is an appointment-patient management app for a small doctor's office.
   - [Deployment](#rocket-deployment)  
 - [Resources](#page_facing_up-resources)
 - [Gallery](#camera-gallery)
-- [Credit/Acknowledgment](#star2-creditacknowledgment)
 
 # :beginner: About
 - A Web App for Appointment/Patient Management
@@ -37,6 +36,7 @@ Termin App is an appointment-patient management app for a small doctor's office.
 ###  :package: Commands
 - `$ yarn start` or `$ ng serve` to start the Angular project
 - `$ yarn serve-docs` or `$ npm run serve-docs` to serve the documentation UI on `:8081`
+- `$ yarn generate-docs` or `$ npn run generate-docs` to generate the documentation
 
 #  :wrench: Development
 
