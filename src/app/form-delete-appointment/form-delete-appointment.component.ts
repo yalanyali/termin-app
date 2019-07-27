@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { AppointmentService } from '../_services';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 
@@ -11,7 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
   templateUrl: './form-delete-appointment.component.html',
   styleUrls: ['./form-delete-appointment.component.css']
 })
-export class FormDeleteAppointmentComponent implements OnInit {
+export class FormDeleteAppointmentComponent {
 
   @Input() appointmentId: String = "0"; // External use
   @Input() appointmentName: String = ""; // External use
@@ -29,13 +29,7 @@ export class FormDeleteAppointmentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<FormDeleteAppointmentComponent>,
     private appointmentService: AppointmentService,
-    private _snackBar: MatSnackBar) {
-    // this.appointmentObservable = appointmentService.getAll();
-   }
-
-  ngOnInit() {
-    // console.log(this.appointmentId);
-  }
+    private _snackBar: MatSnackBar) { }
 
   handleOkButton() {
     this.formError.hidden = true;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 
 import { PatientService } from '../_services';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
@@ -13,7 +13,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
   templateUrl: './form-delete-patient.component.html',
   styleUrls: ['./form-delete-patient.component.css']
 })
-export class FormDeletePatientComponent implements OnInit {
+export class FormDeletePatientComponent {
 
   @Input() patientId: String = "0"; // External use
   @Input() patientName: String = ""; // External use
@@ -31,13 +31,8 @@ export class FormDeletePatientComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<FormDeletePatientComponent>,
     private patientService: PatientService,
-    private _snackBar: MatSnackBar) {
-    // this.patientObservable = patientService.getAll();
-   }
+    private _snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-    // console.log(this.patientId);
-  }
 
   handleOkButton() {
     this.formError.hidden = true;

@@ -21,7 +21,7 @@ import { FormAppointmentAddNoteComponent } from '../form-appointment-add-note/fo
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.css']
 })
-export class AppointmentComponent implements OnInit {
+export class AppointmentComponent {
 
   selectedAppointment;
   appointmentObservable;
@@ -49,10 +49,6 @@ export class AppointmentComponent implements OnInit {
         })
       })
     )
-  }
-
-  ngOnInit() {
-    // this.appointmentObservable.subscribe(a => console.log(a))
   }
 
   handleAppointmentOnClick(e) {

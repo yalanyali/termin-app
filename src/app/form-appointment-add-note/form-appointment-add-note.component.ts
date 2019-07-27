@@ -11,7 +11,7 @@ import { AppointmentRecord } from '../_models';
   templateUrl: './form-appointment-add-note.component.html',
   styleUrls: ['./form-appointment-add-note.component.css']
 })
-export class FormAppointmentAddNoteComponent implements OnInit {
+export class FormAppointmentAddNoteComponent {
 
   @Output() afterClose: EventEmitter<any> = new EventEmitter();
   note: string;
@@ -31,10 +31,6 @@ export class FormAppointmentAddNoteComponent implements OnInit {
     private appointmentService: AppointmentService) {
    }
 
-  ngOnInit() {
-    // console.log(this.patientId);
-  }
-
   handleOkButton() {
     this.formError.hidden = true;
     let appointmentRecord = new AppointmentRecord();
@@ -48,7 +44,7 @@ export class FormAppointmentAddNoteComponent implements OnInit {
             'text': 'Success'
           }, true)
         } else {
-          // ERROR
+          // ERROR FEEDBACK
         }
       });
   }
@@ -63,9 +59,6 @@ export class FormAppointmentAddNoteComponent implements OnInit {
       if (closeAfter) {
         this.dialogRef.close();
       }
-      // else if (this.patientId && closeAfter) {
-      //   this.afterClose.emit(this.appointment);
-      // }
     }, 1500)
   }
   

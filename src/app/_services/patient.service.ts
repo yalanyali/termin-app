@@ -1,4 +1,4 @@
-import { Injectable, Predicate } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Patient, Appointment, Prescription } from '../_models';
 import { Observable } from 'rxjs';

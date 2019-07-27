@@ -3,7 +3,6 @@ import { Patient } from './patient';
 
 export class Appointment {
     id: Number;
-    // datetime: string;
     dateTime: string;
     description: string;
     appointmentRecord: AppointmentRecord;

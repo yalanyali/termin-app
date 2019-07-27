@@ -5,7 +5,6 @@ import { MatTableDataSource, MatSort, MatPaginator, MatTable } from '@angular/ma
 import { Observable } from 'rxjs';
 
 import * as _moment from 'moment';
-import { map } from 'rxjs/operators';
 const moment = _moment;
 
 
@@ -17,7 +16,7 @@ const moment = _moment;
   templateUrl: 'list.component.html',
   styleUrls: ['list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit  {
 
   @Input('dataObservable') dataObservable: Observable<any>;
   @Input('columns') columns: Array<any>;
@@ -30,8 +29,11 @@ export class ListComponent implements OnInit {
   dataSource;
   subscription;
   hideOlder = false;
+  isLoading: boolean;
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private cd: ChangeDetectorRef) {
+    this.isLoading = true;
+   }
 
   ngOnInit() {
     this.displayedColumns = this.columns.map(x => x.id);
@@ -67,8 +69,14 @@ export class ListComponent implements OnInit {
         return JSON.stringify(Object.values(data)).toLowerCase().includes(value);
       };
 
+      // Loaded
+      this.setLoading(false);
     });
   };
+
+  setLoading(isLoading) {
+    this.isLoading = isLoading;
+  }
 
   handleCheckboxToggle(e) {
     this.hideOlder = e.checked;

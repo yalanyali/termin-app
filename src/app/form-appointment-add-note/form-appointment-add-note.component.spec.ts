@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormAppointmentNewNoteComponent } from './form-appointment-new-note.component';
+import { FormAppointmentAddNoteComponent } from './form-appointment-add-note.component';
 
-describe('FormAppointmentNewNoteComponent', () => {
-  let component: FormAppointmentNewNoteComponent;
-  let fixture: ComponentFixture<FormAppointmentNewNoteComponent>;
+describe('FormAppointmentAddNoteComponent', () => {
+  let component: FormAppointmentAddNoteComponent;
+  let fixture: ComponentFixture<FormAppointmentAddNoteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormAppointmentNewNoteComponent ]
+      declarations: [ FormAppointmentAddNoteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormAppointmentNewNoteComponent);
+    fixture = TestBed.createComponent(FormAppointmentAddNoteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

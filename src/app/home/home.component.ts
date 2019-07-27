@@ -1,29 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
-
-import { Patient } from '../_models';
-import { PatientService } from '../_services';
+import { Component } from '@angular/core';
 
 /**
  * "Home" component.
  * 
  * Renders `CalendarComponent` inside a `ContentCard`.
  * 
- * Planned as a home dashboard component.
+ * Planned as a home dashboard component to be extended.
  */
 @Component({
     selector: 'home-component',
     templateUrl: 'home.component.html',
     styleUrls: ['home.component.css']
 })
-export class HomeComponent implements OnInit {
-    // patients: Patient[] = [];
+export class HomeComponent {
 
-    constructor(private patientService: PatientService) {}
-
-    ngOnInit() {
-        // this.patientService.getAll().pipe(first()).subscribe(patients => { 
-        //     this.patients = patients;
-        // });
-    }
 }

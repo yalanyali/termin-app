@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { MatBottomSheet, MatDialog } from '@angular/material';
 
@@ -21,7 +21,7 @@ import { FormNewPrescriptionComponent } from '../form-new-prescription/form-new-
   templateUrl: './patient.component.html',
   styleUrls: ['./patient.component.css']
 })
-export class PatientComponent implements OnInit {
+export class PatientComponent {
 
   selectedPatient;
   patientObservable;
@@ -34,10 +34,6 @@ export class PatientComponent implements OnInit {
     private bottomSheet: MatBottomSheet,
     private dialog: MatDialog) {
     this.patientObservable = patientService.getAll();
-  }
-
-  ngOnInit() {
-
   }
 
   handlePatientOnClick(e) {

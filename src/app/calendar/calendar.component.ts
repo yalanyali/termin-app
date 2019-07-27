@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { CalendarEvent, CalendarMonthViewDay, CalendarDateFormatter } from 'angular-calendar';
 import { addMinutes } from 'date-fns';
 import { DayViewHour, DAYS_OF_WEEK } from 'calendar-utils';

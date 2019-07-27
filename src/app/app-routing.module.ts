@@ -20,6 +20,7 @@ const APP_ROUTES: Routes = [
   { path: 'medicine', component: MedicineComponent, canActivate: [AuthGuard] },
 
   // otherwise redirect to home
+  // Since it's an app, we don't need a 404 page
   { path: '**', redirectTo: '' }
 ];
 

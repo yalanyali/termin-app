@@ -66,7 +66,6 @@ export class FormNewPrescriptionComponent implements OnInit {
       .get('userInput')
       .valueChanges
       .pipe(
-        // startWith(''),
         debounceTime(300),
         tap(() => {
           this.showAutocompletePanel = true;
