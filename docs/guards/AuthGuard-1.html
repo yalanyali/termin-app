@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content guard">
                    <div class="content-data">
 
 
@@ -36,9 +36,11 @@
 
 
 
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>AuthenticationService</li>
+    <li>Guards</li>
+    <li>AuthGuard</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -51,43 +53,30 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
-        <p class="comment">
+        <div class="tab-pane fade active in" id="c-info">
+            <p class="comment">
             <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>src/app/_services/authentication.service.ts</code>
-        </p>
-
+            </p>
             <p class="comment">
+                <code>src/app/_guards/auth.guards.ts</code>
+            </p>
+
+                <p class="comment">
                 <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Authenticates with username and password using HttpClient.
-Authentication hash is stored in local storage on successful login.</p>
+                </p>
+                <p class="comment">
+                    <p>Looks for the user credentials <code>currentUser</code> in local storage.</p>
+<p>Redirects to the login page on error.</p>
 
-            </p>
+                </p>
 
 
 
-            <section>
+
+                <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#api">api</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -98,10 +87,7 @@ Authentication hash is stored in local storage on successful login.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#login">login</a>
-                            </li>
-                            <li>
-                                <a href="#logout">logout</a>
+                                <a href="#canActivate">canActivate</a>
                             </li>
                         </ul>
                     </td>
@@ -115,18 +101,18 @@ Authentication hash is stored in local storage on successful login.</p>
     </table>
 </section>
 
-            <section>
+                <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/_services/authentication.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/_guards/auth.guards.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -144,10 +130,10 @@ Authentication hash is stored in local storage on successful login.</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>http</td>
+                                                        <td>router</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -164,7 +150,7 @@ Authentication hash is stored in local storage on successful login.</p>
         </table>
 </section>
 
-            <section>
+                <section>
     
     <h3 id="methods">
         Methods
@@ -173,26 +159,26 @@ Authentication hash is stored in local storage on successful login.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="login"></a>
+                    <a name="canActivate"></a>
                     <span class="name">
                         <b>
-                            login
+                            canActivate
                         </b>
-                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>login(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>canActivate(route: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/_services/authentication.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/_guards/auth.guards.ts:14</a></div>
                 </td>
             </tr>
 
@@ -212,9 +198,9 @@ Authentication hash is stored in local storage on successful login.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>username</td>
+                                    <td>route</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank" >ActivatedRouteSnapshot</a></code>
                                     </td>
 
                                     <td>
@@ -224,9 +210,9 @@ Authentication hash is stored in local storage on successful login.</p>
 
                                 </tr>
                                 <tr>
-                                    <td>password</td>
+                                    <td>state</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank" >RouterStateSnapshot</a></code>
                                     </td>
 
                                     <td>
@@ -241,7 +227,7 @@ Authentication hash is stored in local storage on successful login.</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -251,136 +237,37 @@ Authentication hash is stored in local storage on successful login.</p>
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logout"></a>
-                    <span class="name">
-                        <b>
-                            logout
-                        </b>
-                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>logout()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/_services/authentication.service.ts:37</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="api"></a>
-                        <span class="name">
-                            <b>
-                            api</b>
-                            <a href="#api"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>environment.apiUrl</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/_services/authentication.service.ts:14</a></div>
-                            </td>
-                        </tr>
+        </div>
 
 
-            </tbody>
-        </table>
-</section>
-
-    </div>
-
-
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
-
-import { environment } from &#x27;../../environments/environment&#x27;;
+        <div class="tab-pane fade  tab-source-code" id="c-source">
+            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from &#x27;@angular/router&#x27;;
 
 /**
- * Authenticates with username and password using HttpClient.
- * Authentication hash is stored in local storage on successful login.
+ * Looks for the user credentials &#x60;currentUser&#x60; in local storage.
+ * 
+ * Redirects to the login page on error.
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
-export class AuthenticationService {
+export class AuthGuard implements CanActivate {
 
-  api: string &#x3D; environment.apiUrl;
+  constructor(private router: Router) { }
 
-  constructor(private http: HttpClient) { }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (localStorage.getItem(&#x27;currentUser&#x27;)) {
+      // logged in so return true
+      return true;
+    }
 
-  login(username: string, password: string) {
-
-    const authHash &#x3D; btoa(username + &#x27;:&#x27; + password);
-    const httpOptions &#x3D; {
-      headers: new HttpHeaders({
-        &#x27;Authorization&#x27;: &#x27;Basic &#x27; + authHash
-      })
-    };
-
-    return this.http.get&lt;any&gt;(&#x60;${this.api}/auth&#x60;, httpOptions)
-      .pipe(map(res &#x3D;&gt; {
-        if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
-          // store user details and basic auth credentials in local storage 
-          // to keep user logged in between page refreshes
-          localStorage.setItem(&#x27;currentUser&#x27;, authHash);
-        }
-      }));
+    // not logged in so redirect to login page with the return url
+    this.router.navigate([&#x27;/login&#x27;], { queryParams: { returnUrl: state.url } });
+    return false;
   }
-
-  logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem(&#x27;currentUser&#x27;);
-  }
-}
-</code></pre>
-    </div>
-
+}</code></pre>
+        </div>
 </div>
-
-
 
 
 
@@ -407,8 +294,8 @@ export class AuthenticationService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthGuard-1.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

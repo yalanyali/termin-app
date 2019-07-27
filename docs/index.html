@@ -1,269 +1,195 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>termin-app-v2 documentation</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>termin-app-v2 documentation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="./" class="navbar-brand">termin-app-v2 documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
-        </div>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
 
-        <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
-        </div>
+<body>
 
-        <div class="container-fluid main">
-           <div class="row main">
-               <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
-               </div>
-               <!-- START CONTENT -->
-               <div class="content getting-started">
-                   <div class="content-data">
-
-<h1 id="introduction">Introduction</h1>
-<p>Termin App is an appointment-patient management app for a small doctor&#39;s office.</p>
-<h1 id="ledger-index">:ledger: Index</h1>
-<ul>
-<li><a href="#beginner-about">About</a></li>
-<li><a href="#sunny-usage">Usage</a><ul>
-<li><a href="#electric_plug-installation">Installation</a></li>
-<li><a href="#package-commands">Commands</a></li>
-</ul>
-</li>
-<li><a href="#wrench-development">Development</a><ul>
-<li><a href="#notebook-pre-requisites">Pre-Requisites</a></li>
-<li><a href="#nut_and_bolt-development-environment">Development Environment</a></li>
-<li><a href="#file_folder-file-structure">File Structure</a></li>
-<li><a href="#hammer-build">Build</a>  </li>
-<li><a href="#rocket-deployment">Deployment</a>  </li>
-</ul>
-</li>
-<li><a href="#page_facing_up-resources">Resources</a></li>
-<li><a href="#camera-gallery">Gallery</a></li>
-</ul>
-<h1 id="beginner-about">:beginner: About</h1>
-<ul>
-<li>A Web App for Appointment/Patient Management</li>
-<li>Intended for internal use in a doctor&#39;s office, maybe packaged as an Electron app</li>
-<li>Uses a <a href="https://github.com/yalanyali/termin-api">REST API</a> server with MySQL as backend</li>
-</ul>
-<h1 id="sunny-usage">:sunny: Usage</h1>
-<ul>
-<li>The app needs to have its backend server running.</li>
-<li>Address of the backend server is defined in <code>environment/environment.ts</code></li>
-<li>A <a href="http://termin-api.chickenkiller.com:8080/api">test server</a> is included in <code>environment.ts</code> as apiRemote</li>
-</ul>
-<h3 id="electric_plug-installation">:electric_plug: Installation</h3>
-<ul>
-<li>Install project dependencies using <a href="https://github.com/yarnpkg/yarn">Yarn</a> (recommended) <strong>or</strong> npm:
-<code>$ yarn install</code>
-<code>$ npm i</code></li>
-<li>If you&#39;re not using the test server, make sure the backend server setup correctly.</li>
-</ul>
-<h3 id="package-commands">:package: Commands</h3>
-<ul>
-<li><code>$ yarn start</code> or <code>$ ng serve</code> to start the Angular project</li>
-<li><code>$ yarn serve-docs</code> or <code>$ npm run serve-docs</code> to serve the documentation UI on <code>:8081</code></li>
-<li><code>$ yarn generate-docs</code> or <code>$ npn run generate-docs</code> to generate the documentation</li>
-</ul>
-<h1 id="wrench-development">:wrench: Development</h1>
-<h3 id="notebook-pre-requisites">:notebook: Pre-Requisites</h3>
-<p>The pre-requisites the system needs to test/develop this project:
-- Backend server: A REST API
-- MySQL as the database for the backend server</p>
-<p>A <a href="http://termin-api.chickenkiller.com:8080/api">test server</a> is included in the project. Check <code>environment.ts</code></p>
-<h3 id="file_folder-file-structure">:file_folder: File Structure</h3>
-<p><code>.
-├── README.md
-├── TODO
-├── angular.json
-├── docs
-│   └── ...
-├── node_modules
-│   └── ...
-├── package.json
-├── src
-│   ├── environments
-│   │   ├── environment.prod.ts
-│   │   └── environment.ts
-│   ├── app
-│   │   ├── _guards: GUARDS FOLDER
-│   │   │   └── auth.guard.ts
-│   │   ├── _helpers: INTERCEPTORS FOLDER
-│   │   │   ├── error.interceptor.ts
-│   │   │   └── request.interceptor.ts
-│   │   ├── _models: MODELS FOLDER
-│   │   │   ├── address.ts
-│   │   │   ├── appointment-record.ts
-│   │   │   ├── appointment.ts
-│   │   │   ├── disease.ts
-│   │   │   ├── index.ts
-│   │   │   ├── medicine.ts
-│   │   │   ├── patient.ts
-│   │   │   ├── prescription.ts
-│   │   │   └── user.ts
-│   │   ├── _services: SERVICES FOLDER
-│   │   │   ├── appointment.service.ts
-│   │   │   ├── authentication.service.ts
-│   │   │   ├── index.ts
-│   │   │   ├── medicine.service.ts
-│   │   │   ├── patient.service.ts
-│   │   │   ├── prescription.service.ts
-│   │   │   └── user.service.ts
-│   │   ├── validators: VALIDATORS FOLDER
-│   │   │   └── GenericBackendValidator.ts
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   ├── main.ts
-│   │   ├── styles.css
-│   │   ├── app-routing.module.ts
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   ├── app.module.ts
-│   │   │
-├───┼───┼───────COMPONENTS BEGIN HERE────────
-│   │   │
-│   │   ├── appointment
-│   │   │   └── ...
-│   │   ├── bottom-sheet
-│   │   │   └── ...
-│   │   ├── calendar
-│   │   │   └── ...
-│   │   ├── content-card
-│   │   │   └── ...
-│   │   ├── datetimepicker
-│   │   │   └── ...
-│   │   ├── form-appointment-add-note
-│   │   │   └── ...
-│   │   ├── form-delete-appointment
-│   │   │   └── ...
-│   │   ├── form-delete-medicine
-│   │   │   └── ...
-│   │   ├── form-delete-patient
-│   │   │   └── ...
-│   │   ├── form-delete-prescription
-│   │   │   └── ...
-│   │   ├── form-new-appointment
-│   │   │   └── ...
-│   │   ├── form-new-patient
-│   │   │   └── ...
-│   │   ├── form-new-prescription
-│   │   │   └── ...
-│   │   ├── home
-│   │   │   └── ...
-│   │   ├── list
-│   │   │   └── ...
-│   │   ├── login
-│   │   │   └── ...
-│   │   ├── medicine
-│   │   │   └── ...
-│   │   ├── navigation
-│   │   │   └── ...
-│   │   ├── patient
-│   │   │   └── ...
-│   │   └── prescription
-│   │       └── ...
-.   .</code></p>
-<h3 id="hammer-build">:hammer: Build</h3>
-<p>To build the application, run build command using Yarn or npm:
-<code>$ yarn build</code>
-<code>$ npm build</code></p>
-<p>To install and deploy the backend server, please see the project&#39;s repo.</p>
-<ul>
-<li><a href="https://github.com/yalanyali/termin-api">Backend Server Repo</a></li>
-</ul>
-<h3 id="rocket-deployment">:rocket: Deployment</h3>
-<p>The project can be deployed to any web server after it&#39;s <a href="#hammer-build">built</a>.</p>
-<h1 id="page_facing_up-resources">:page_facing_up: Resources</h1>
-<ul>
-<li>Backend server repo: https://github.com/yalanyali/termin-api</li>
-<li>Server for testing: http://termin-api.chickenkiller.com:8080/api</li>
-</ul>
-<p><strong>Note on test server:</strong>
-<strong>Test server is implemented to be reset in half hour intervals for security purposes.</strong>
-<strong>Don&#39;t panic if you experience data loss, you will and that&#39;s intended.</strong></p>
-<h1 id="camera-gallery">:camera: Gallery</h1>
-<p>Home Page - Calendar View  </p>
-<p><img src="./docs/images/calendar.png" alt="Home Page" class="img-responsive" title="Home Page"></p>
-<p>Patient Page with Bottom Menu Toggled - List View of Patients  </p>
-<p><img src="./docs/images/patient_2.png" alt="Patient Page" class="img-responsive" title="Patient Page"></p>
-<p>To see more views, please run the application.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   </div><div class="search-results">
-    <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
-        <ul class="search-results-list"></ul>
+    <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <a href="./" class="navbar-brand">termin-app-v2 documentation</a>
+        <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
     </div>
-    <div class="no-results">
-        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+    <div class="xs-menu menu" id="mobile-menu">
+        <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>
+        <compodoc-menu></compodoc-menu>
     </div>
-</div>
-</div>
-               <!-- END CONTENT -->
-           </div>
-       </div>
 
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
-            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
-       </script>
+    <div class="container-fluid main">
+        <div class="row main">
+            <div class="hidden-xs menu">
+                <compodoc-menu mode="normal"></compodoc-menu>
+            </div>
+            <!-- START CONTENT -->
+            <div class="content getting-started">
+                <div class="content-data">
 
-       <script src="./js/libs/custom-elements.min.js"></script>
-       <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
+                    <h1 id="introduction">Introduction</h1>
+                    <p>Termin App is an appointment-patient management app for a small doctor&#39;s office.</p>
+                    <h1 id="ledger-index">Index</h1>
+                    <ul>
+                        <li><a href="#beginner-about">About</a></li>
+                        <li><a href="#sunny-usage">Usage</a>
+                            <ul>
+                                <li><a href="#electric_plug-installation">Installation</a></li>
+                                <li><a href="#package-commands">Commands</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#wrench-development">Development</a>
+                            <ul>
+                                <li><a href="#notebook-pre-requisites">Pre-Requisites</a></li>
+                                <li><a href="#nut_and_bolt-development-environment">Development Environment</a></li>
+                                <li><a href="#hammer-build">Build</a> </li>
+                                <li><a href="#rocket-deployment">Deployment</a> </li>
+                            </ul>
+                        </li>
+                        <li><a href="#page_facing_up-resources">Resources</a></li>
+                    </ul>
+                    <h1 id="beginner-about">About</h1>
+                    <ul>
+                        <li>A Web App for Appointment/Patient Management</li>
+                        <li>Intended for internal use in a doctor&#39;s office, maybe packaged as an Electron app</li>
+                        <li>Uses a <a href="https://github.com/yalanyali/termin-api">REST API</a> server with MySQL as
+                            backend</li>
+                    </ul>
+                    <h1 id="sunny-usage">Usage</h1>
+                    <ul>
+                        <li>The app needs to have its backend server running.</li>
+                        <li>Address of the backend server is defined in <code>environment/environment.ts</code></li>
+                        <li>A <a href="http://termin-api.chickenkiller.com:8080/api">test server</a> is included in
+                            <code>environment.ts</code> as apiRemote</li>
+                    </ul>
+                    <h3 id="electric_plug-installation">Installation</h3>
+                    <ul>
+                        <li>Install project dependencies using <a href="https://github.com/yarnpkg/yarn">Yarn</a>
+                            (recommended) <strong>or</strong> npm:<br />
+                            <code>$ yarn install</code><br />
+                            <code>$ npm i</code></li>
+                        <li>If you&#39;re not using the test server, make sure the backend server setup correctly.</li>
+                    </ul>
+                    <h3 id="package-commands">Commands</h3>
+                    <ul>
+                        <li><code>$ yarn start</code> or <code>$ ng serve</code> to start the Angular project</li>
+                        <li><code>$ yarn serve-docs</code> or <code>$ npm run serve-docs</code> to serve the
+                            documentation UI on <code>:8081</code></li>
+                        <li><code>$ yarn generate-docs</code> or <code>$ npn run generate-docs</code> to generate the
+                            documentation</li>
+                    </ul>
+                    <h1 id="wrench-development">Development</h1>
+                    <h3 id="notebook-pre-requisites">Pre-Requisites</h3>
+                    <p>The pre-requisites the system needs to test/develop this project:</p>
+                    <ul>
+                        <li>Backend server: A REST API</li>
+                        <li>MySQL as the database for the backend server</li>
+                    </ul>
+                    <p>A <a href="http://termin-api.chickenkiller.com:8080/api">test server</a> is included in the
+                        project. Check <code>environment.ts</code></p>
+                    <h3 id="hammer-build">Build</h3>
+                    <p>To build the application, run build command using Yarn <strong>or</strong> npm:<br />
+                        <ul>
+                            <li><code>$ yarn build</code></li>
+                            <li><code>$ npm build</code></li>
+                        </ul>
+                    </p>
+                    <p>To install and deploy the backend server, please see the project&#39;s repo.</p>
+                    <ul>
+                        <li><a href="https://github.com/yalanyali/termin-api">Backend Server Repo</a></li>
+                    </ul>
+                    <h3 id="rocket-deployment">Deployment</h3>
+                    <p>The project can be deployed to any web server after it&#39;s <a href="#hammer-build">built</a>.
+                    </p>
+                    <h1 id="page_facing_up-resources">Resources</h1>
+                    <ul>
+                        <li>Backend server repo: <a
+                                href="https://github.com/yalanyali/termin-api">https://github.com/yalanyali/termin-api</a>
+                        </li>
+                        <li>Server for testing: <a
+                                href="http://termin-api.chickenkiller.com:8080/api">http://termin-api.chickenkiller.com:8080/api</a>
+                        </li>
+                    </ul>
+                    <p><strong>Note on test server:</strong><br />
+                        <strong>Test server is implemented to be reset in half hour intervals for security
+                            purposes.</strong>
+                        <strong>Don&#39;t panic if you experience data loss, you will and that&#39;s intended.</strong>
+                    </p>
+                    <br /><br />
 
-       <script src="./js/libs/bootstrap-native.js"></script>
-
-       <script src="./js/libs/es6-shim.min.js"></script>
-       <script src="./js/libs/EventDispatcher.js"></script>
-       <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
-
-       <script src="./js/compodoc.js"></script>
-
-       <script src="./js/tabs.js"></script>
-       <script src="./js/menu.js"></script>
-       <script src="./js/libs/clipboard.min.js"></script>
-       <script src="./js/libs/prism.js"></script>
-       <script src="./js/sourceCode.js"></script>
-          <script src="./js/search/search.js"></script>
-          <script src="./js/search/lunr.min.js"></script>
-          <script src="./js/search/search-lunr.js"></script>
-          <script src="./js/search/search_index.js"></script>
-       <script src="./js/lazy-load-graphs.js"></script>
 
 
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching
+                            "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+
+    <script>
+        var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+        var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+        var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+    </script>
+
+    <script src="./js/libs/custom-elements.min.js"></script>
+    <script src="./js/libs/lit-html.js"></script>
+    <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+    <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+    <script src="./js/menu-wc.js" defer></script>
+
+    <script src="./js/libs/bootstrap-native.js"></script>
+
+    <script src="./js/libs/es6-shim.min.js"></script>
+    <script src="./js/libs/EventDispatcher.js"></script>
+    <script src="./js/libs/promise.min.js"></script>
+    <script src="./js/libs/zepto.min.js"></script>
+
+    <script src="./js/compodoc.js"></script>
+
+    <script src="./js/tabs.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/libs/clipboard.min.js"></script>
+    <script src="./js/libs/prism.js"></script>
+    <script src="./js/sourceCode.js"></script>
+    <script src="./js/search/search.js"></script>
+    <script src="./js/search/lunr.min.js"></script>
+    <script src="./js/search/search-lunr.js"></script>
+    <script src="./js/search/search_index.js"></script>
+    <script src="./js/lazy-load-graphs.js"></script>
+
+
+</body>
+
 </html>

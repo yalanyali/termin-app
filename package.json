@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "compodoc",
-    "generate-docs": "compodoc -p src/tsconfig.app.json -d docs",
+    "generate-docs": "compodoc -p src/tsconfig.app.json -d docs --disableCoverage",
     "serve-docs": "compodoc -s src/tsconfig.app.json -d docs -r 8081"
   },
   "private": true,
@@ -41,7 +41,7 @@
     "@angular/cli": "~7.3.9",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@compodoc/compodoc": "^1.1.9",
+    "@compodoc/compodoc": "^1.1.10",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
