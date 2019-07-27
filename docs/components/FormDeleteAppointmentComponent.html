@@ -74,12 +74,6 @@ Calls <code>AppointmentService.deleteAppointment()</code> on confirmation.</p>
     </p>
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -164,9 +158,6 @@ Calls <code>AppointmentService.deleteAppointment()</code> on confirmation.</p>
                             </li>
                             <li>
                                 <a href="#handleOkButton">handleOkButton</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -367,8 +358,8 @@ Calls <code>AppointmentService.deleteAppointment()</code> on confirmation.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/form-delete-appointment/form-delete-appointment.component.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/form-delete-appointment/form-delete-appointment.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -448,47 +439,8 @@ Calls <code>AppointmentService.deleteAppointment()</code> on confirmation.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/form-delete-appointment/form-delete-appointment.component.ts:40</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/form-delete-appointment/form-delete-appointment.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/form-delete-appointment/form-delete-appointment.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -623,7 +575,7 @@ Calls <code>AppointmentService.deleteAppointment()</code> on confirmation.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Inject, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, Input } from &#x27;@angular/core&#x27;;
 import { AppointmentService } from &#x27;../_services&#x27;;
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from &#x27;@angular/material&#x27;;
 
@@ -636,7 +588,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from &#x27;@angular/materi
   templateUrl: &#x27;./form-delete-appointment.component.html&#x27;,
   styleUrls: [&#x27;./form-delete-appointment.component.css&#x27;]
 })
-export class FormDeleteAppointmentComponent implements OnInit {
+export class FormDeleteAppointmentComponent {
 
   @Input() appointmentId: String &#x3D; &quot;0&quot;; // External use
   @Input() appointmentName: String &#x3D; &quot;&quot;; // External use
@@ -654,20 +606,14 @@ export class FormDeleteAppointmentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef&lt;FormDeleteAppointmentComponent&gt;,
     private appointmentService: AppointmentService,
-    private _snackBar: MatSnackBar) {
-    // this.appointmentObservable &#x3D; appointmentService.getAll();
-   }
-
-  ngOnInit() {
-    // console.log(this.appointmentId);
-  }
+    private _snackBar: MatSnackBar) { }
 
   handleOkButton() {
     this.formError.hidden &#x3D; true;
     let appointmentId &#x3D; this.data.id || this.appointmentId;
     this.appointmentService.deleteAppointment(appointmentId)
       .subscribe(res &#x3D;&gt; {
-        if (res.success) {
+        if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
           this.buttonFeedback({
             &#x27;color&#x27;: &#x27;accent&#x27;,
             &#x27;text&#x27;: &#x27;Success&#x27;

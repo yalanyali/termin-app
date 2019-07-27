@@ -301,8 +301,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">src/app/calendar/calendar.component.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/calendar/calendar.component.ts:101</a></div>
                 </td>
             </tr>
 
@@ -340,8 +340,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/app/calendar/calendar.component.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/calendar/calendar.component.ts:96</a></div>
                 </td>
             </tr>
 
@@ -410,8 +410,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">src/app/calendar/calendar.component.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/calendar/calendar.component.ts:83</a></div>
                 </td>
             </tr>
 
@@ -476,8 +476,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">src/app/calendar/calendar.component.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/calendar/calendar.component.ts:91</a></div>
                 </td>
             </tr>
 
@@ -585,8 +585,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">src/app/calendar/calendar.component.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/calendar/calendar.component.ts:79</a></div>
                 </td>
             </tr>
 
@@ -907,7 +907,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, OnInit, EventEmitter, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, OnInit } from &#x27;@angular/core&#x27;;
 import { CalendarEvent, CalendarMonthViewDay, CalendarDateFormatter } from &#x27;angular-calendar&#x27;;
 import { addMinutes } from &#x27;date-fns&#x27;;
 import { DayViewHour, DAYS_OF_WEEK } from &#x27;calendar-utils&#x27;;
@@ -972,6 +972,7 @@ export class CalendarComponent implements OnInit {
       .pipe(
         // @ts-ignore: Appointment[] !&#x3D;&#x3D; Appointment ???
         map((appointments: Appointment[]) &#x3D;&gt; {
+          console.log(appointments)
           return appointments.map((a: Appointment) &#x3D;&gt; {
             const dateTime &#x3D; moment(a.dateTime, &#x27;DD.MM.YYYY HH:mm&#x27;).toDate();
             return {

@@ -496,7 +496,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Inject } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject } from &#x27;@angular/core&#x27;;
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from &#x27;@angular/material&#x27;;
 import { PrescriptionService } from &#x27;../_services/prescription.service&#x27;;
 
@@ -528,7 +528,7 @@ export class FormDeletePrescriptionComponent {
     let prescriptionId &#x3D; this.data.id;
     this.prescriptionService.deletePrescription(prescriptionId)
       .subscribe(res &#x3D;&gt; {
-        if (res.success) {
+        if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
           this.buttonFeedback({
             &#x27;color&#x27;: &#x27;accent&#x27;,
             &#x27;text&#x27;: &#x27;Success&#x27;

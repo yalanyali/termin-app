@@ -383,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:115</a></div>
                 </td>
             </tr>
 
@@ -422,8 +422,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -495,8 +495,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:119</a></div>
                 </td>
             </tr>
 
@@ -536,8 +536,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:164</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:163</a></div>
                 </td>
             </tr>
 
@@ -602,8 +602,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:102</a></div>
                 </td>
             </tr>
 
@@ -671,8 +671,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:148</a></div>
                 </td>
             </tr>
 
@@ -712,8 +712,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:167</a></div>
                 </td>
             </tr>
 
@@ -790,8 +790,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/form-new-prescription/form-new-prescription.component.ts:109</a></div>
                 </td>
             </tr>
 
@@ -1267,7 +1267,6 @@ export class FormNewPrescriptionComponent implements OnInit {
       .get(&#x27;userInput&#x27;)
       .valueChanges
       .pipe(
-        // startWith(&#x27;&#x27;),
         debounceTime(300),
         tap(() &#x3D;&gt; {
           this.showAutocompletePanel &#x3D; true;
@@ -1387,7 +1386,7 @@ export class FormNewPrescriptionComponent implements OnInit {
       // Creating new
       this.patientService.addPrescription(this.data.id, this.prescription)
         .subscribe(res &#x3D;&gt; {
-          if (res.success) {
+          if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
             this.openSnackBar(&quot;Rezept gespeichert!&quot;);
             this.dialogRef.close();
           } else {

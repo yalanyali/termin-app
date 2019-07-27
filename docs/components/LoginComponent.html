@@ -668,7 +668,6 @@ export class LoginComponent implements OnInit {
                         placeholder&#x3D;&quot;Password&quot;&gt;
                 &lt;/mat-form-field&gt;
 
-                &lt;!-- &lt;mat-spinner [style.display]&#x3D;&quot;loading ? &#x27;block&#x27; : &#x27;none&#x27;&quot;&gt;&lt;/mat-spinner&gt; --&gt;
                 &lt;mat-card-actions&gt;
                     &lt;button mat-raised-button (click)&#x3D;&quot;submit()&quot; color&#x3D;&quot;{{button.color}}&quot;&gt;{{ button.text }}&lt;/button&gt;
                 &lt;/mat-card-actions&gt;
@@ -678,34 +677,7 @@ export class LoginComponent implements OnInit {
         &lt;/mat-card&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-
-
-&lt;!-- &lt;div class&#x3D;&quot;alert alert-info&quot;&gt;
-    Username: test&lt;br /&gt;
-    Password: test
-&lt;/div&gt;
-&lt;h2&gt;Login&lt;/h2&gt;
-&lt;form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
-    &lt;div class&#x3D;&quot;form-group&quot;&gt;
-        &lt;label for&#x3D;&quot;username&quot;&gt;Username&lt;/label&gt;
-        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;username&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.username.errors }&quot; /&gt;
-        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.username.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-            &lt;div *ngIf&#x3D;&quot;f.username.errors.required&quot;&gt;Username is required&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;form-group&quot;&gt;
-        &lt;label for&#x3D;&quot;password&quot;&gt;Password&lt;/label&gt;
-        &lt;input type&#x3D;&quot;password&quot; formControlName&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.password.errors }&quot; /&gt;
-        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.password.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-            &lt;div *ngIf&#x3D;&quot;f.password.errors.required&quot;&gt;Password is required&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;form-group&quot;&gt;
-        &lt;button [disabled]&#x3D;&quot;loading&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
-        &lt;img *ngIf&#x3D;&quot;loading&quot; src&#x3D;&quot;data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA&#x3D;&#x3D;&quot; /&gt;
-    &lt;/div&gt;
-    &lt;div *ngIf&#x3D;&quot;error&quot; class&#x3D;&quot;alert alert-danger&quot;&gt;{{error}}&lt;/div&gt;
-&lt;/form&gt; --&gt;</code></pre>
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -783,7 +755,7 @@ mat-form-field.mat-form-field {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="login-overlay">    <div class="login-container">        <mat-card class="login-card">            <mat-card-header class="login-card-header">                <mat-card-title class="login-card-title">Login</mat-card-title>            </mat-card-header>            <mat-card-content class="login-card-content">                <mat-form-field>                    <input matInput [(ngModel)]="username" name="username" placeholder="Username">                </mat-form-field>                <mat-form-field>                    <input matInput [(ngModel)]="password" name="password" (keyup.enter)="submit()" type="password"                        placeholder="Password">                </mat-form-field>                <!-- <mat-spinner [style.display]="loading ? \'block\' : \'none\'"></mat-spinner> -->                <mat-card-actions>                    <button mat-raised-button (click)="submit()" color="{{button.color}}">{{ button.text }}</button>                </mat-card-actions>            </mat-card-content>        </mat-card>    </div></div><!-- <div class="alert alert-info">    Username: test<br />    Password: test</div><h2>Login</h2><form [formGroup]="loginForm" (ngSubmit)="onSubmit()">    <div class="form-group">        <label for="username">Username</label>        <input type="text" formControlName="username" class="form-control" [ngClass]="{ \'is-invalid\': submitted && f.username.errors }" />        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">            <div *ngIf="f.username.errors.required">Username is required</div>        </div>    </div>    <div class="form-group">        <label for="password">Password</label>        <input type="password" formControlName="password" class="form-control" [ngClass]="{ \'is-invalid\': submitted && f.password.errors }" />        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">            <div *ngIf="f.password.errors.required">Password is required</div>        </div>    </div>    <div class="form-group">        <button [disabled]="loading" class="btn btn-primary">Login</button>        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />    </div>    <div *ngIf="error" class="alert alert-danger">{{error}}</div></form> --></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="login-overlay">    <div class="login-container">        <mat-card class="login-card">            <mat-card-header class="login-card-header">                <mat-card-title class="login-card-title">Login</mat-card-title>            </mat-card-header>            <mat-card-content class="login-card-content">                <mat-form-field>                    <input matInput [(ngModel)]="username" name="username" placeholder="Username">                </mat-form-field>                <mat-form-field>                    <input matInput [(ngModel)]="password" name="password" (keyup.enter)="submit()" type="password"                        placeholder="Password">                </mat-form-field>                <mat-card-actions>                    <button mat-raised-button (click)="submit()" color="{{button.color}}">{{ button.text }}</button>                </mat-card-actions>            </mat-card-content>        </mat-card>    </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentComponent', 'selector': 'app-appointment'},{'name': 'BottomSheetComponent', 'selector': 'app-bottom-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ContentCardComponent', 'selector': 'app-content-card'},{'name': 'DatetimepickerComponent', 'selector': 'app-datetimepicker'},{'name': 'FormAppointmentAddNoteComponent', 'selector': 'app-form-appointment-add-note'},{'name': 'FormDeleteAppointmentComponent', 'selector': 'app-form-delete-appointment'},{'name': 'FormDeleteMedicineComponent', 'selector': 'app-form-delete-medicine'},{'name': 'FormDeletePatientComponent', 'selector': 'app-form-delete-patient'},{'name': 'FormDeletePrescriptionComponent', 'selector': 'app-form-delete-prescription'},{'name': 'FormNewAppointmentComponent', 'selector': 'app-form-new-appointment'},{'name': 'FormNewPatientComponent', 'selector': 'app-form-new-patient'},{'name': 'FormNewPrescriptionComponent', 'selector': 'app-form-new-prescription'},{'name': 'HomeComponent', 'selector': 'home-component'},{'name': 'ListComponent', 'selector': 'list-component'},{'name': 'LoginComponent', 'selector': ''},{'name': 'MedicineComponent', 'selector': 'app-medicine'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PatientComponent', 'selector': 'app-patient'},{'name': 'PrescriptionComponent', 'selector': 'app-prescription'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};

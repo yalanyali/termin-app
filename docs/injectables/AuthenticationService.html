@@ -362,7 +362,7 @@ export class AuthenticationService {
 
     return this.http.get&lt;any&gt;(&#x60;${this.api}/auth&#x60;, httpOptions)
       .pipe(map(res &#x3D;&gt; {
-        if (res.success) {
+        if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
           // store user details and basic auth credentials in local storage 
           // to keep user logged in between page refreshes
           localStorage.setItem(&#x27;currentUser&#x27;, authHash);

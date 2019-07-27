@@ -227,7 +227,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl } from &#x27;@angular/forms&#x27;;
 import { map, switchMapTo } from &#x27;rxjs/operators&#x27;;
 import { PatientService } from &#x27;../_services&#x27;;
-import { timer } from &#x27;rxjs&#x27;;
+import { timer, of } from &#x27;rxjs&#x27;;
 
 /**
  * Server-side unique value validation controller.
@@ -235,15 +235,16 @@ import { timer } from &#x27;rxjs&#x27;;
 export class ValidateUniqueValues {
   static createValidator(patientService: PatientService, type: string, valueToExclude: string &#x3D; &#x27;&#x27;) {
     return (control: AbstractControl) &#x3D;&gt; {
+      // Return directly when value is to be excluded (Validation expects Promise or Observable type)
+      if (control.value &#x3D;&#x3D;&#x3D; valueToExclude) { return of(null)}
+
       // Angular unsubscribes to the previous Observable before calling the validator function and subscribing to the new Observable.
       // timer returns cold Observable, as the Observable is unsubscribed when a new value is sent for checking,
       // the timeout is cleared before the call is made and the input gets effectively debounced before validation check.
       return timer(500).pipe(
         switchMapTo(patientService.checkUniqueValue(control.value, type)),
         map(res &#x3D;&gt; {
-          // Return directly when value is to be excluded
-          if (control.value &#x3D;&#x3D;&#x3D; valueToExclude) { return null}
-          return res[&quot;isUnique&quot;] ? null : { notUnique: true }
+          return res[&quot;unique&quot;] ? null : { notUnique: true }
         })
       )
     }

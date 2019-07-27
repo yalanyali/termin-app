@@ -74,12 +74,6 @@ Calls <code>PatientService.deletePatient()</code> on confirmation.</p>
     </p>
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -164,9 +158,6 @@ Calls <code>PatientService.deletePatient()</code> on confirmation.</p>
                             </li>
                             <li>
                                 <a href="#handleOkButton">handleOkButton</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -367,8 +358,8 @@ Calls <code>PatientService.deletePatient()</code> on confirmation.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/app/form-delete-patient/form-delete-patient.component.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/form-delete-patient/form-delete-patient.component.ts:58</a></div>
                 </td>
             </tr>
 
@@ -448,47 +439,8 @@ Calls <code>PatientService.deletePatient()</code> on confirmation.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/form-delete-patient/form-delete-patient.component.ts:42</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/form-delete-patient/form-delete-patient.component.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/form-delete-patient/form-delete-patient.component.ts:37</a></div>
                 </td>
             </tr>
 
@@ -623,7 +575,7 @@ Calls <code>PatientService.deletePatient()</code> on confirmation.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Inject, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, Input } from &#x27;@angular/core&#x27;;
 
 import { PatientService } from &#x27;../_services&#x27;;
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from &#x27;@angular/material&#x27;;
@@ -638,7 +590,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from &#x27;@angular/materi
   templateUrl: &#x27;./form-delete-patient.component.html&#x27;,
   styleUrls: [&#x27;./form-delete-patient.component.css&#x27;]
 })
-export class FormDeletePatientComponent implements OnInit {
+export class FormDeletePatientComponent {
 
   @Input() patientId: String &#x3D; &quot;0&quot;; // External use
   @Input() patientName: String &#x3D; &quot;&quot;; // External use
@@ -656,20 +608,15 @@ export class FormDeletePatientComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef&lt;FormDeletePatientComponent&gt;,
     private patientService: PatientService,
-    private _snackBar: MatSnackBar) {
-    // this.patientObservable &#x3D; patientService.getAll();
-   }
+    private _snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-    // console.log(this.patientId);
-  }
 
   handleOkButton() {
     this.formError.hidden &#x3D; true;
     let patientId &#x3D; this.data.id || this.patientId;
     this.patientService.deletePatient(patientId)
       .subscribe(res &#x3D;&gt; {
-        if (res.success) {
+        if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
           this.buttonFeedback({
             &#x27;color&#x27;: &#x27;accent&#x27;,
             &#x27;text&#x27;: &#x27;Success&#x27;
@@ -710,7 +657,6 @@ export class FormDeletePatientComponent implements OnInit {
     &lt;br&gt;
     &lt;span&gt;Möchten Sie alle Daten von {{ this.data.patientName }} löschen?&lt;/span&gt;
     &lt;br&gt;
-    &lt;!-- &lt;span class&#x3D;&quot;form-patient-name&quot;&gt;{{ this.data.patientName }}&lt;/span&gt; --&gt;
   &lt;/div&gt;
 
   &lt;button mat-raised-button (click)&#x3D;&quot;handleOkButton()&quot; color&#x3D;&quot;{{ button.color }}&quot;&gt;{{ button.text }}&lt;/button&gt;
@@ -791,7 +737,7 @@ export class FormDeletePatientComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="form-delete-patient">  <div class="form-header">    <span class="form-title">Daten Löschen</span>    <br>    <span>Möchten Sie alle Daten von {{ this.data.patientName }} löschen?</span>    <br>    <!-- <span class="form-patient-name">{{ this.data.patientName }}</span> -->  </div>  <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>  <div *ngIf="!formError.hidden" class="form-error-content">    <span class="form-error-text">Fehler: </span>    <span class="form-error-patient">{{ formError.text }}</span>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="form-delete-patient">  <div class="form-header">    <span class="form-title">Daten Löschen</span>    <br>    <span>Möchten Sie alle Daten von {{ this.data.patientName }} löschen?</span>    <br>  </div>  <button mat-raised-button (click)="handleOkButton()" color="{{ button.color }}">{{ button.text }}</button>  <div *ngIf="!formError.hidden" class="form-error-content">    <span class="form-error-text">Fehler: </span>    <span class="form-error-patient">{{ formError.text }}</span>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentComponent', 'selector': 'app-appointment'},{'name': 'BottomSheetComponent', 'selector': 'app-bottom-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ContentCardComponent', 'selector': 'app-content-card'},{'name': 'DatetimepickerComponent', 'selector': 'app-datetimepicker'},{'name': 'FormAppointmentAddNoteComponent', 'selector': 'app-form-appointment-add-note'},{'name': 'FormDeleteAppointmentComponent', 'selector': 'app-form-delete-appointment'},{'name': 'FormDeleteMedicineComponent', 'selector': 'app-form-delete-medicine'},{'name': 'FormDeletePatientComponent', 'selector': 'app-form-delete-patient'},{'name': 'FormDeletePrescriptionComponent', 'selector': 'app-form-delete-prescription'},{'name': 'FormNewAppointmentComponent', 'selector': 'app-form-new-appointment'},{'name': 'FormNewPatientComponent', 'selector': 'app-form-new-patient'},{'name': 'FormNewPrescriptionComponent', 'selector': 'app-form-new-prescription'},{'name': 'HomeComponent', 'selector': 'home-component'},{'name': 'ListComponent', 'selector': 'list-component'},{'name': 'LoginComponent', 'selector': ''},{'name': 'MedicineComponent', 'selector': 'app-medicine'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PatientComponent', 'selector': 'app-patient'},{'name': 'PrescriptionComponent', 'selector': 'app-prescription'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FormDeletePatientComponent'};

@@ -30,10 +30,167 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="termin-app">Termin App</h1>
-<p>A Web App for patient/appointment management.</p>
-<h2 id="components">Components</h2>
-<h1 id="navigation">Navigation</h1>
+<h1 id="introduction">Introduction</h1>
+<p>Termin App is an appointment-patient management app for a small doctor&#39;s office.</p>
+<h1 id="ledger-index">:ledger: Index</h1>
+<ul>
+<li><a href="#beginner-about">About</a></li>
+<li><a href="#sunny-usage">Usage</a><ul>
+<li><a href="#electric_plug-installation">Installation</a></li>
+<li><a href="#package-commands">Commands</a></li>
+</ul>
+</li>
+<li><a href="#wrench-development">Development</a><ul>
+<li><a href="#notebook-pre-requisites">Pre-Requisites</a></li>
+<li><a href="#nut_and_bolt-development-environment">Development Environment</a></li>
+<li><a href="#file_folder-file-structure">File Structure</a></li>
+<li><a href="#hammer-build">Build</a>  </li>
+<li><a href="#rocket-deployment">Deployment</a>  </li>
+</ul>
+</li>
+<li><a href="#page_facing_up-resources">Resources</a></li>
+<li><a href="#camera-gallery">Gallery</a></li>
+<li><a href="#star2-creditacknowledgment">Credit/Acknowledgment</a></li>
+</ul>
+<h1 id="beginner-about">:beginner: About</h1>
+<ul>
+<li>A Web App for Appointment/Patient Management</li>
+<li>Intended for internal use in a doctor&#39;s office, maybe packaged as an Electron app</li>
+<li>Uses a <a href="https://source.ai.fh-erfurt.de/wa4953al/SS19_JAVA2_ITLand">REST API</a> server with MySQL as backend</li>
+</ul>
+<h1 id="sunny-usage">:sunny: Usage</h1>
+<ul>
+<li>The app needs to have its backend server running.</li>
+<li>Address of the backend server is defined in <code>environment/environment.ts</code></li>
+</ul>
+<h3 id="electric_plug-installation">:electric_plug: Installation</h3>
+<ul>
+<li>Install project dependencies using <a href="https://github.com/yarnpkg/yarn">Yarn</a> (recommended) <strong>or</strong> npm:
+<code>$ yarn install</code>
+<code>$ npm i</code></li>
+<li>Make sure the backend server setup correctly.</li>
+</ul>
+<p><code>$ add installations steps if you have to.</code></p>
+<h3 id="package-commands">:package: Commands</h3>
+<ul>
+<li><code>$ yarn start</code> or <code>$ ng serve</code> to start the Angular project</li>
+<li><code>$ yarn serve-docs</code> or <code>$ npm run serve-docs</code> to serve the documentation UI on <code>:8081</code></li>
+</ul>
+<h1 id="wrench-development">:wrench: Development</h1>
+<h3 id="notebook-pre-requisites">:notebook: Pre-Requisites</h3>
+<p>The pre-requisites the system needs to develop this project:
+- Java ^1.8
+- B tool</p>
+<h3 id="nut_and_bolt-development-environment">:nut_and_bolt: Development Environment</h3>
+<p>Write about setting up the working environment for your project.
+- How to download the project...
+- How to install dependencies...</p>
+<h3 id="file_folder-file-structure">:file_folder: File Structure</h3>
+<p>Add a file structure here with the basic details about files, below is an example.</p>
+<p><code>.
+├── README.md
+├── TODO
+├── angular.json
+├── docs
+│   └── ...
+├── node_modules
+│   └── ...
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app
+│   │   ├── _guards: GUARDS FOLDER
+│   │   │   └── auth.guards.ts
+│   │   ├── _helpers: INTERCEPTORS FOLDER
+│   │   │   ├── error.interceptor.ts
+│   │   │   └── request.interceptor.ts
+│   │   ├── _models: MODELS FOLDER
+│   │   │   ├── address.ts
+│   │   │   ├── appointment-record.ts
+│   │   │   ├── appointment.ts
+│   │   │   ├── disease.ts
+│   │   │   ├── index.ts
+│   │   │   ├── medicine.ts
+│   │   │   ├── patient.ts
+│   │   │   ├── prescription.ts
+│   │   │   └── user.ts
+│   │   ├── _services: SERVICES FOLDER
+│   │   │   ├── appointment.service.ts
+│   │   │   ├── authentication.service.ts
+│   │   │   ├── index.ts
+│   │   │   ├── medicine.service.ts
+│   │   │   ├── patient.service.ts
+│   │   │   ├── prescription.service.ts
+│   │   │   └── user.service.ts
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   │   ├── appointment
+│   │   │   └── ...
+│   │   ├── bottom-sheet
+│   │   │   └── ...
+│   │   ├── calendar
+│   │   │   └── ...
+│   │   ├── content-card
+│   │   │   └── ...
+│   │   ├── datetimepicker
+│   │   │   └── ...
+│   │   ├── form-appointment-add-note
+│   │   │   └── ...
+│   │   ├── form-delete-appointment
+│   │   │   └── ...
+│   │   ├── form-delete-medicine
+│   │   │   └── ...
+│   │   ├── form-delete-patient
+│   │   │   └── ...
+│   │   ├── form-delete-prescription
+│   │   │   └── ...
+│   │   ├── form-new-appointment
+│   │   │   └── ...
+│   │   ├── form-new-patient
+│   │   │   └── ...
+│   │   ├── form-new-prescription
+│   │   │   └── ...
+│   │   ├── home
+│   │   │   └── ...
+│   │   ├── list
+│   │   │   └── ...
+│   │   ├── login
+│   │   │   └── ...
+│   │   ├── medicine
+│   │   │   └── ...
+│   │   ├── navigation
+│   │   │   └── ...
+│   │   ├── patient
+│   │   │   └── ...
+│   │   ├── prescription
+│   │   │   └── ...
+│   │   └── validators
+│   │       └── GenericBackendValidator.ts
+│   ├── environments
+│   │   ├── environment.prod.ts
+│   │   └── environment.ts
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   ├── styles.css
+└── yarn.lock</code></p>
+<p>| No | File Name | Details 
+|----|------------|-------|
+| 1  | index | Entry point</p>
+<h3 id="hammer-build">:hammer: Build</h3>
+<p>Write the build Instruction here.</p>
+<h3 id="rocket-deployment">:rocket: Deployment</h3>
+<p>Write the deployment instruction here.</p>
+<h1 id="page_facing_up-resources">:page_facing_up: Resources</h1>
+<p>Add important resources here</p>
+<h1 id="camera-gallery">:camera: Gallery</h1>
+<p>Pictures of your project.</p>
+<h1 id="star2-creditacknowledgment">:star2: Credit/Acknowledgment</h1>
+<p>Credit the authors here.</p>
 
 
 
