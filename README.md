@@ -19,7 +19,7 @@ Termin App is an appointment-patient management app for a small doctor's office.
 # :beginner: About
 - A Web App for Appointment/Patient Management
 - Intended for internal use in a doctor's office, maybe packaged as an Electron app
-- Uses a [REST API](https://source.ai.fh-erfurt.de/wa4953al/SS19_JAVA2_ITLand) server with MySQL as backend
+- Uses a [REST API](https://github.com/yalanyali/termin-api) server with MySQL as backend
 
 # :sunny: Usage
 - The app needs to have its backend server running.
