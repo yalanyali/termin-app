@@ -50,7 +50,6 @@
 </li>
 <li><a href="#page_facing_up-resources">Resources</a></li>
 <li><a href="#camera-gallery">Gallery</a></li>
-<li><a href="#star2-creditacknowledgment">Credit/Acknowledgment</a></li>
 </ul>
 <h1 id="beginner-about">:beginner: About</h1>
 <ul>
@@ -62,31 +61,28 @@
 <ul>
 <li>The app needs to have its backend server running.</li>
 <li>Address of the backend server is defined in <code>environment/environment.ts</code></li>
+<li>A <a href="http://termin-api.chickenkiller.com:8080/api">test server</a> is included in <code>environment.ts</code> as apiRemote</li>
 </ul>
 <h3 id="electric_plug-installation">:electric_plug: Installation</h3>
 <ul>
 <li>Install project dependencies using <a href="https://github.com/yarnpkg/yarn">Yarn</a> (recommended) <strong>or</strong> npm:
 <code>$ yarn install</code>
 <code>$ npm i</code></li>
-<li>Make sure the backend server setup correctly.</li>
+<li>If you&#39;re not using the test server, make sure the backend server setup correctly.</li>
 </ul>
-<p><code>$ add installations steps if you have to.</code></p>
 <h3 id="package-commands">:package: Commands</h3>
 <ul>
 <li><code>$ yarn start</code> or <code>$ ng serve</code> to start the Angular project</li>
 <li><code>$ yarn serve-docs</code> or <code>$ npm run serve-docs</code> to serve the documentation UI on <code>:8081</code></li>
+<li><code>$ yarn generate-docs</code> or <code>$ npn run generate-docs</code> to generate the documentation</li>
 </ul>
 <h1 id="wrench-development">:wrench: Development</h1>
 <h3 id="notebook-pre-requisites">:notebook: Pre-Requisites</h3>
-<p>The pre-requisites the system needs to develop this project:
-- Java ^1.8
-- B tool</p>
-<h3 id="nut_and_bolt-development-environment">:nut_and_bolt: Development Environment</h3>
-<p>Write about setting up the working environment for your project.
-- How to download the project...
-- How to install dependencies...</p>
+<p>The pre-requisites the system needs to test/develop this project:
+- Backend server: A REST API
+- MySQL as the database for the backend server</p>
+<p>A <a href="http://termin-api.chickenkiller.com:8080/api">test server</a> is included in the project. Check <code>environment.ts</code></p>
 <h3 id="file_folder-file-structure">:file_folder: File Structure</h3>
-<p>Add a file structure here with the basic details about files, below is an example.</p>
 <p><code>.
 ├── README.md
 ├── TODO
@@ -95,12 +91,14 @@
 │   └── ...
 ├── node_modules
 │   └── ...
-├── package-lock.json
 ├── package.json
 ├── src
+│   ├── environments
+│   │   ├── environment.prod.ts
+│   │   └── environment.ts
 │   ├── app
 │   │   ├── _guards: GUARDS FOLDER
-│   │   │   └── auth.guards.ts
+│   │   │   └── auth.guard.ts
 │   │   ├── _helpers: INTERCEPTORS FOLDER
 │   │   │   ├── error.interceptor.ts
 │   │   │   └── request.interceptor.ts
@@ -122,12 +120,21 @@
 │   │   │   ├── patient.service.ts
 │   │   │   ├── prescription.service.ts
 │   │   │   └── user.service.ts
+│   │   ├── validators: VALIDATORS FOLDER
+│   │   │   └── GenericBackendValidator.ts
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── main.ts
+│   │   ├── styles.css
 │   │   ├── app-routing.module.ts
 │   │   ├── app.component.css
 │   │   ├── app.component.html
 │   │   ├── app.component.spec.ts
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts
+│   │   │
+├───┼───┼───────COMPONENTS BEGIN HERE────────
+│   │   │
 │   │   ├── appointment
 │   │   │   └── ...
 │   │   ├── bottom-sheet
@@ -166,31 +173,33 @@
 │   │   │   └── ...
 │   │   ├── patient
 │   │   │   └── ...
-│   │   ├── prescription
-│   │   │   └── ...
-│   │   └── validators
-│   │       └── GenericBackendValidator.ts
-│   ├── environments
-│   │   ├── environment.prod.ts
-│   │   └── environment.ts
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── main.ts
-│   ├── styles.css
-└── yarn.lock</code></p>
-<p>| No | File Name | Details 
-|----|------------|-------|
-| 1  | index | Entry point</p>
+│   │   └── prescription
+│   │       └── ...
+.   .</code></p>
 <h3 id="hammer-build">:hammer: Build</h3>
-<p>Write the build Instruction here.</p>
+<p>To build the application, run build command using Yarn or npm:
+<code>$ yarn build</code>
+<code>$ npm build</code></p>
+<p>To install and deploy the backend server, please see the project&#39;s repo.</p>
+<ul>
+<li><a href="https://github.com/yalanyali/termin-api">Backend Server Repo</a></li>
+</ul>
 <h3 id="rocket-deployment">:rocket: Deployment</h3>
-<p>Write the deployment instruction here.</p>
+<p>The project can be deployed to any web server after it&#39;s <a href="#hammer-build">built</a>.</p>
 <h1 id="page_facing_up-resources">:page_facing_up: Resources</h1>
-<p>Add important resources here</p>
+<ul>
+<li>Backend server repo: https://github.com/yalanyali/termin-api</li>
+<li>Server for testing: http://termin-api.chickenkiller.com:8080/api</li>
+</ul>
+<p><strong>Note on test server:</strong>
+<strong>Test server is implemented to be reset in half hour intervals for security purposes.</strong>
+<strong>Don&#39;t panic if you experience data loss, you will and that&#39;s intended.</strong></p>
 <h1 id="camera-gallery">:camera: Gallery</h1>
-<p>Pictures of your project.</p>
-<h1 id="star2-creditacknowledgment">:star2: Credit/Acknowledgment</h1>
-<p>Credit the authors here.</p>
+<p>Home Page - Calendar View  </p>
+<p><img src="./docs/images/calendar.png" alt="Home Page" class="img-responsive" title="Home Page"></p>
+<p>Patient Page with Bottom Menu Toggled - List View of Patients  </p>
+<p><img src="./docs/images/patient_2.png" alt="Patient Page" class="img-responsive" title="Patient Page"></p>
+<p>To see more views, please run the application.</p>
 
 
 
