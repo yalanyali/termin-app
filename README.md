@@ -171,6 +171,7 @@ Home Page - Calendar View
 ![Home Page](./docs/images/calendar.png "Home Page")
 
 Patient Page with Bottom Menu Toggled - List View of Patients  
+
 ![Patient Page](./docs/images/patient_2.png "Patient Page")
 
 To see more views, please run the application.
