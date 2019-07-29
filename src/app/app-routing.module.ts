@@ -13,7 +13,7 @@ import { MedicineComponent } from './medicine/medicine.component';
 
 const APP_ROUTES: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'patient', component: PatientComponent, canActivate: [AuthGuard] },
   { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard] },
   { path: 'prescription', component: PrescriptionComponent, canActivate: [AuthGuard] },
