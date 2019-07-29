@@ -27,12 +27,16 @@ Check the Wiki for a detailed information.
 - Address of the backend server is defined in `environment/environment.ts`
 - A [test server](http://termin-api.chickenkiller.com:8080/api) is included in `environment.ts` as apiRemote
 
+
 ###  :electric_plug: Installation
 - Install project dependencies using [Yarn](https://github.com/yarnpkg/yarn) (recommended) **or** npm:
 `$ yarn install`
 `$ npm i`
 - If you're not using the test server, make sure the backend server setup correctly.
 
+### :key: Default User Credentials
+- Username: `testuser`
+- Password: `testpassword`
 
 ###  :package: Commands
 - `$ yarn start` or `$ ng serve` to start the Angular project
