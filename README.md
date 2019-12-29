@@ -1,3 +1,5 @@
+THIS IS AN ARCHIVE REPO.
+
 # Introduction
 Termin App is an appointment-patient management app for a small doctor's office.  
 Check the Wiki for a detailed information.
